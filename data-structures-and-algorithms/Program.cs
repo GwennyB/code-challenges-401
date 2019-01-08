@@ -58,6 +58,7 @@ namespace data_structures_and_algorithms
                 {
                     // counter = (last_index) + 1
                     // inputArray_length = counter
+                    endOfArray = true;
                     Console.Write($"inputArray contains ${counter} elements");
                     counter++; // shiftedArray length is 1 longer than inputArray length, or (counter + 1)
                 }
