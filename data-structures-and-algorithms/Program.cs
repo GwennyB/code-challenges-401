@@ -25,13 +25,19 @@ namespace data_structures_and_algorithms
             int shiftIndex = ShiftIndex(arrayLength);
 
             // populate shiftedArray
-            for (int i = 0; i < arrayLength; i++)
+            // for (left end of shiftedArray) - set shiftedArray[i] = inputArray[i] for left half, 
+            for (int i = 0; i < shiftIndex; i++)
             {
-                if()
+                shiftedArray[i] = inputArray[i];
             }
-            // for (length of shiftedArray) - set shiftedArray[i] = inputArray[i] for left half, 
-            //                          shiftedArray[i] = newNum at middle, 
-            //                          shiftedArray[i+1] = inputArray[i] for right half
+            // for shiftIndex - set shiftedArray[i] = newNum at middle, 
+            shiftedArray[shiftIndex] = newNum;
+            // for (right end of shiftedArray) - set shiftedArray[i+1] = inputArray[i] for right half
+            for (int i = shiftIndex; i < arrayLength-1; i++)
+            {
+                shiftedArray[i+1] = inputArray[i];
+            }
+
             return shiftedArray;
         }
 
@@ -62,9 +68,9 @@ namespace data_structures_and_algorithms
         // finds shift index
         static int ShiftIndex(int arrayLength)
         {
-            int shiftIndex = 0; // set return value variable
+            int shiftIndex = 0; // set variable to hold shift index
 
-            // shift in center if even, aim high if odd
+            // find index to insert new element
             if (arrayLength%2 == 0)
             {
                 shiftIndex = arrayLength / 2;
