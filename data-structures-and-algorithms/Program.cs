@@ -13,6 +13,13 @@ namespace data_structures_and_algorithms
             int[] inputArray = { 0, 0, 0, 0, 0 };
             int newNum = 9999;
             int[] shiftedArray = insertShiftArray(inputArray, newNum);
+            Console.Write("shiftedArray = [ ");
+            foreach (int el in shiftedArray)
+            {
+                Console.Write($"{el} ");
+            }
+            Console.WriteLine("]");
+            Console.ReadLine();
         }
 
         static int[] insertShiftArray(int[] inputArray, int newNum)
@@ -59,7 +66,7 @@ namespace data_structures_and_algorithms
                     // counter = (last_index) + 1
                     // inputArray_length = counter
                     endOfArray = true;
-                    Console.Write($"inputArray contains ${counter} elements");
+                    Console.WriteLine($"inputArray contains ${counter} elements");
                     counter++; // shiftedArray length is 1 longer than inputArray length, or (counter + 1)
                 }
             }
@@ -78,8 +85,10 @@ namespace data_structures_and_algorithms
             }
             else
             {
-                shiftIndex = (arrayLength + 1) / 2;
+                shiftIndex = (arrayLength - 1) / 2;
             }
+
+            Console.WriteLine($"shiftIndex = {shiftIndex}");
 
             return shiftIndex;
         }
