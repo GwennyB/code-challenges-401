@@ -12,7 +12,7 @@ namespace data_structures_and_algorithms
         {
             int[] inputArray = { 0, 0, 0, 0, 0 };
             int newNum = 9999;
-            int[] shiftedArray = insertShiftArray(inputArray, newNum);
+            int[] shiftedArray = InsertShiftArray(inputArray, newNum);
             Console.Write("shiftedArray = [ ");
             foreach (int el in shiftedArray)
             {
@@ -22,7 +22,7 @@ namespace data_structures_and_algorithms
             Console.ReadLine();
         }
 
-        static int[] insertShiftArray(int[] inputArray, int newNum)
+        static int[] InsertShiftArray(int[] inputArray, int newNum)
         {
             // set up shiftedArray
             int arrayLength = FindArrayLength(inputArray);
