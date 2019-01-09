@@ -10,15 +10,27 @@ namespace data_structures_and_algorithms
         }
         static void ArrayShift()
         {
-            int[] inputArray = { 0, 0, 0, 0, 0 };
-            int newNum = 9999;
-            int[] shiftedArray = InsertShiftArray(inputArray, newNum);
-            Console.Write("shiftedArray = [ ");
-            foreach (int el in shiftedArray)
-            {
-                Console.Write($"{el} ");
-            }
-            Console.WriteLine("]");
+            int[] inputArrayEven = { 0, 0, 0, 0 }; // test input for even length case
+            int[] inputArrayOdd = { 0, 0, 0, 0, 0 }; // test input for odd length case
+            int newNum = 9999; // test input for both cases
+
+            // even length case
+            Console.WriteLine("EVEN LENGTH CASE"); // print even length case
+            Console.Write("Input array = ");
+            PrintArray(inputArrayEven);
+            Console.WriteLine($"Number to insert = {newNum}");
+            int[] shiftedArrayEven = InsertShiftArray(inputArrayEven, newNum); // build even length case
+            Console.Write("Output array = ");
+            PrintArray(shiftedArrayEven);
+
+            // odd length case
+            Console.WriteLine("\nODD LENGTH CASE"); // print odd length case
+            Console.Write("Input array = ");
+            PrintArray(inputArrayOdd);
+            Console.WriteLine($"Number to insert = {newNum}");
+            int[] shiftedArrayOdd = InsertShiftArray(inputArrayOdd, newNum); // build odd length case
+            Console.Write("Output array = ");
+            PrintArray(shiftedArrayOdd);
             Console.ReadLine();
         }
 
@@ -66,7 +78,7 @@ namespace data_structures_and_algorithms
                     // counter = (last_index) + 1
                     // inputArray_length = counter
                     endOfArray = true;
-                    Console.WriteLine($"inputArray contains ${counter} elements");
+                    Console.WriteLine($"  FINDING: inputArray contains {counter} elements");
                     counter++; // shiftedArray length is 1 longer than inputArray length, or (counter + 1)
                 }
             }
@@ -88,9 +100,20 @@ namespace data_structures_and_algorithms
                 shiftIndex = (arrayLength - 1) / 2;
             }
 
-            Console.WriteLine($"shiftIndex = {shiftIndex}");
+            Console.WriteLine($"  FINDING: shiftIndex = {shiftIndex}");
 
             return shiftIndex;
+        }
+
+        // prints an array to console
+        static void PrintArray(int[] arrayToPrint)
+        {
+            Console.Write("[ "); // print even length case
+            foreach (int el in arrayToPrint)
+            {
+                Console.Write($"{el} ");
+            }
+            Console.WriteLine("]");
         }
     }
 }
