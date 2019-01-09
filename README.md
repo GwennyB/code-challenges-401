@@ -17,4 +17,4 @@ I used a try-catch block inside a while loop to test for validity at each index 
   - length 1 (would return an array with original element 0 and new number in index 1)
 
 ## Solution
-![whiteboard](assets/whiteboard.jpg)
+![whiteboard](assets/array_shift.jpg)
