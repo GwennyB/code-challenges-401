@@ -43,6 +43,19 @@ namespace array_binary_search
 
         static int BinarySearch(int[] inputArray, int searchKey)
         {
+            // set up temp vars
+            // set boundaries and midpoint of search range
+            int start = 0;
+            int end = inputArray.Length - 1;
+            if(inputArray.Length % 2 != 0)
+            {
+                int middle = end / 2;
+            }
+            else
+            {
+                int middle = inputArray.Length / 2;
+            }
+
 
         }
 
