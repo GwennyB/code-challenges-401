@@ -36,6 +36,28 @@ namespace array_binary_search
             foundAtIndex = BinarySearch(inputArrayOdd, searchKeyDNE); // build even length case
             Console.Write($"Index where found = {foundAtIndex}");
 
+            // assigned test case
+            int[] inputArrayOne = { 4, 8, 15, 16, 23, 42 }; // test input for even length case
+            int searchKey = 15; // test input - search key (exists in array)
+
+            Console.WriteLine("\n\nASSIGNED CASE - KEY FOUND"); // print even length case
+            Console.Write("Input array = ");
+            PrintArray(inputArrayOne);
+            Console.WriteLine($"Number to locate = {searchKey}");
+            foundAtIndex = BinarySearch(inputArrayOne, searchKey); // build even length case
+            Console.Write($"Index where found = {foundAtIndex}");
+
+            // assigned test case - DNE
+            int[] inputArrayTwo = { 11,22,33,44,55,66,77 }; // test input for even length case
+            searchKey = 90; // test input - search key (exists in array)
+
+            Console.WriteLine("\n\nASSIGNED CASE - KEY NOT FOUND"); // print even length case
+            Console.Write("Input array = ");
+            PrintArray(inputArrayTwo);
+            Console.WriteLine($"Number to locate = {searchKey}");
+            foundAtIndex = BinarySearch(inputArrayTwo, searchKey); // build even length case
+            Console.Write($"Index where found = {foundAtIndex}");
+
             Console.ReadLine();
 
         }
