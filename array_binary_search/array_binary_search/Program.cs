@@ -2,14 +2,14 @@
 
 namespace array_binary_search
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int[] inputArrayEven = { -4, -3, -1, 2, 18, 73, 99, 10422 }; // test input for even length case
+            int[] inputArrayEven = { -1, 2, 18, 73, 99, 10422 }; // test input for even length case
             int[] inputArrayOdd = { -4, -3, -1, 0, 2, 18, 73, 99, 10422 }; // test input for odd length case
             int searchKeyExists = 18; // test input - search key (exists in array)
-            int searchKeyDNE = 18; // test input - search key (DNE in array)
+            int searchKeyDNE = -2; // test input - search key (DNE in array)
 
             // even length case
             // search key exists in array
@@ -24,13 +24,12 @@ namespace array_binary_search
             foundAtIndex = BinarySearch(inputArrayEven, searchKeyDNE); // build even length case
             Console.Write($"Index where found = {foundAtIndex}");
 
-
             // odd length case
             Console.WriteLine("\n\nODD LENGTH CASE"); // print odd length case
             Console.Write("Input array = ");
             PrintArray(inputArrayOdd);
             Console.WriteLine($"Number to locate = {searchKeyExists}");
-            foundAtIndex = BinarySearch(inputArrayEven, searchKeyExists); // build even length case
+            foundAtIndex = BinarySearch(inputArrayOdd, searchKeyExists); // build even length case
             Console.Write($"Index where found = {foundAtIndex}");
             // search key DNE in array
             Console.WriteLine($"\nNumber to locate = {searchKeyDNE}");
@@ -41,7 +40,7 @@ namespace array_binary_search
 
         }
 
-        static int BinarySearch(int[] inputArray, int searchKey)
+        public static int BinarySearch(int[] inputArray, int searchKey)
         {
             // set up temp vars with initial search parameters
             int start = 0;
@@ -60,37 +59,40 @@ namespace array_binary_search
                     case "lower":
                         end = middle; // reset boundaries to check lower half of last checked segment
                         middle = FindMiddle(start, end);
+                        compare = CompareToKey(searchKey, inputArray[middle]);
                         break;
                     case "higher":
                         start = middle; // reset boundaries to check upper half of last checked segment
                         middle = FindMiddle(start, end);
+                        compare = CompareToKey(searchKey, inputArray[middle]);
                         break;
                     default:
                         break;
                 }
             }
 
-
-
-            return middle;
+            if (compare == "match")
+            {
+                return middle;
+            }
+            return -1;
         }
 
-        static int FindMiddle(int start, int end)
+        public static int FindMiddle(int start, int end)
         {
-            int sectionLength = end - start;
             int middle = 0;
-            if ( sectionLength % 2 != 0)
+            if ( (end-start) % 2 != 0)
             {
-                middle = end / 2;
+                middle = (end+start+1) / 2;
             }
             else
             {
-                middle = (end + 1) / 2;
+                middle = (end+start) / 2;
             }
             return middle;
         }
 
-        static string CompareToKey(int searchKey, int currentEl)
+        public static string CompareToKey(int searchKey, int currentEl)
         {
             if ( searchKey == currentEl )
             {
@@ -108,7 +110,7 @@ namespace array_binary_search
 
 
         // prints an array to console
-        static void PrintArray(int[] arrayToPrint)
+        public static void PrintArray(int[] arrayToPrint)
         {
             Console.Write("[ "); // print even length case
             foreach (int el in arrayToPrint)
