@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace data_structures_and_algorithms
+namespace array_shift
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

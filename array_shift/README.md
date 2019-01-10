@@ -1,5 +1,5 @@
 # data-structures-and-algorithms
-CF 401 .NET - Code Challenge 1
+CF 401 .NET - Code Challenge 2 - Array Shift
 
 # Insert and shift middle index of array
 Manipulate arrays without relying on built-in array methods.
