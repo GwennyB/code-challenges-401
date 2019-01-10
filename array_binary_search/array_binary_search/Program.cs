@@ -43,21 +43,69 @@ namespace array_binary_search
 
         static int BinarySearch(int[] inputArray, int searchKey)
         {
-            // set up temp vars
-            // set boundaries and midpoint of search range
+            // set up temp vars with initial search parameters
             int start = 0;
             int end = inputArray.Length - 1;
-            if(inputArray.Length % 2 != 0)
+            int middle = FindMiddle(start, end);
+
+            string compare = CompareToKey(searchKey, inputArray[middle]); // initial check to start 'switch'
+
+            while ( end - start > 1 && compare != "match")
             {
-                int middle = end / 2;
+                switch ( compare )
+                {
+                    case "match":
+                        end = start;
+                        break;
+                    case "lower":
+                        end = middle; // reset boundaries to check lower half of last checked segment
+                        middle = FindMiddle(start, end);
+                        break;
+                    case "higher":
+                        start = middle; // reset boundaries to check upper half of last checked segment
+                        middle = FindMiddle(start, end);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+
+            return middle;
+        }
+
+        static int FindMiddle(int start, int end)
+        {
+            int sectionLength = end - start;
+            int middle = 0;
+            if ( sectionLength % 2 != 0)
+            {
+                middle = end / 2;
             }
             else
             {
-                int middle = inputArray.Length / 2;
+                middle = (end + 1) / 2;
             }
-
-
+            return middle;
         }
+
+        static string CompareToKey(int searchKey, int currentEl)
+        {
+            if ( searchKey == currentEl )
+            {
+                return "match";
+            }
+            else if ( searchKey < currentEl )
+            {
+                return "lower";
+            }
+            else
+            {
+                return "higher";
+            }
+        }
+
 
         // prints an array to console
         static void PrintArray(int[] arrayToPrint)

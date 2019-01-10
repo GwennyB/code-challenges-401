@@ -17,7 +17,7 @@ Since the input array is sorted, I bisected it and compared the search key to th
  - I ran out of array to check (return -1, meaning 'no match found')
 Efficiency:
 (Time) O(log n). Bisecting the array, and then the bisection, and so on is logarithmic because the size of the bisections shrinks exponentially with each bisection. In other words, this efficiency improves with data set growth.
-(Space) O(1). Only 2 temp variables are created - it's constant regardless of data size. In other words, this efficiency improves with data set growth.
+(Space) O(1). Only a fixed number of temp variables are created - it's constant regardless of data size. In other words, this efficiency improves with data set growth.
 
 ## Solution
 BigO: This whiteboard image does not address efficiency, but it is addressed above in "Approach & Efficiency"
