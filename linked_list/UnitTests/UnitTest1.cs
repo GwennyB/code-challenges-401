@@ -56,7 +56,7 @@ namespace UnitTests
         /// <summary>
         /// Verifies that node is created and subsequently located by value
         /// </summary>
-        /// <param name="value"> test value to assign to and find in Node.Value </param>
+        /// <param name="value"> test value to assign to new node and find in list </param>
         [Theory]
         [InlineData(0)]
         [InlineData(1)]
@@ -92,6 +92,22 @@ namespace UnitTests
                 testList.Insert(point);
             }
             Assert.True(testList.Includes(value));
+        }
+
+        /// <summary>
+        /// Verifies that Includes returns 'false' when value does not exist in list
+        /// </summary>
+        [Fact]
+        public void Includes_ReturnsFalseForListWithManyNodes()
+        {
+            LinkedList testList = new LinkedList();
+            int number = Convert.ToInt32(1.1);
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100, number };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            Assert.False(testList.Includes(88));
         }
     }
 }
