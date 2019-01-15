@@ -29,32 +29,50 @@ namespace linked_list.Classes
         /// <returns></returns>
         public bool Includes(int value)
         {
-            Current = Head;
- 
-            while (Current.Next != null)
+            if (Head != null)
             {
-                Print(Current);
+                Current = Head;
+
+                while (Current.Next != null)
+                {
+                    if (Current.Value == value)
+                    {
+                        Print();
+                        return true;
+                    }
+                    Current = Current.Next;
+                }
                 if (Current.Value == value)
                 {
                     return true;
                 }
-                Current = Current.Next;
-            }
-            Print(Current);
-            if (Current.Value == value)
-            {
-                return true;
+                Print();
             }
             return false;
         }
 
         /// <summary>
-        /// Prints the value of a specified node
+        /// Prints the values of all nodes in a linked list
         /// </summary>
-        /// <param name="node"> node whose value is to be printed </param>
-        public void Print(Node node)
+        public void Print()
         {
-            Console.Write($"{node.Value} => ");
+            if (Head != null)
+            {
+                Current = Head;
+                Console.Write($"{ Current.Value } => ");
+                while (Current.Next != null)
+                {
+                    Current = Current.Next;
+                    Console.Write($"{ Current.Value } => ");
+                }
+                Console.Write("Null");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("List is empty");
+                Console.ReadLine();
+            }
         }
 
     }
