@@ -37,7 +37,6 @@ namespace linked_list.Classes
                 {
                     if (Current.Value == value)
                     {
-                        Print();
                         return true;
                     }
                     Current = Current.Next;
@@ -46,7 +45,6 @@ namespace linked_list.Classes
                 {
                     return true;
                 }
-                Print();
             }
             return false;
         }
@@ -75,5 +73,85 @@ namespace linked_list.Classes
             }
         }
 
+        /// <summary>
+        /// Creates a new node with specified value and inserts it at the end of a linked list
+        /// </summary>
+        /// <param name="value"> value of new node </param>
+        public void Append(int value)
+        {
+            Current = Head;
+
+            while (Current.Next != null)
+            {
+                Current = Current.Next;
+            }
+
+            Node node = new Node(value);
+
+            Current.Next = node;
+
+        }
+
+        /// <summary>
+        /// Creates a new node with specified value (newValue) and inserts it into a linked list before the first existing node that matches specified value (value)
+        /// </summary>
+        /// <param name="value"> value of existing node to park new node in front of </param>
+        /// <param name="newValue"> value of new node to be created and inserted into list </param>
+        public void InsertBefore(int value, int newValue)
+        {
+            Current = Head;
+
+            if (Current.Value == value)
+            {
+                Insert(newValue);
+                return;
+            }
+
+            while (Current.Next != null)
+            {
+                if (Current.Next.Value == value)
+                {
+                    Node node = new Node(newValue);
+                    node.Next = Current.Next;
+                    Current.Next = node;
+                    return;
+                }
+
+                Current = Current.Next;
+            }
+        }
+
+        /// <summary>
+        /// Creates a new node with specified value (newValue) and inserts it into a linked list before the first existing node that matches specified value (value)
+        /// </summary>
+        /// <param name="value"> value of existing node to park new node in front of </param>
+        /// <param name="newValue"> value of new node to be created and inserted into list </param>
+        public void InsertAfter(int value, int newValue)
+        {
+            Current = Head;
+
+            if (Current.Value == value)
+            {
+                Insert(newValue);
+                return;
+            }
+
+            while (Current.Next != null)
+            {
+                if (Current.Next.Value == value)
+                {
+                    Node node = new Node(newValue);
+                    Current = Current.Next;
+                    node.Next = Current.Next;
+                    Current.Next = node;
+                    return;
+                }
+
+                else
+                {
+                    Current = Current.Next;
+                }
+            }
+        }
     }
 }

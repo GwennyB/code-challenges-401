@@ -7,11 +7,31 @@ namespace linked_list
     {
         static void Main(string[] args)
         {
-            LinkedList list = new LinkedList();
+            TestTheList();
+        }
+
+        static void TestTheList()
+        {
+            //LinkedList list = new LinkedList();
             //list.Insert(1);
             //list.Insert(2);
             //list.Insert(3);
-            list.Print();
+            //list.InsertAfter(2, 999);
+            //list.InsertBefore(2, 888);
+            //list.Print();
+
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            testList.Append(88);
+            while (testList.Current.Next != null)
+            {
+                testList.Current = testList.Current.Next;
+            }
+            testList.Print();
         }
     }
 }

@@ -109,5 +109,86 @@ namespace UnitTests
             }
             Assert.False(testList.Includes(88));
         }
+
+        /// <summary>
+        /// Verifies that InsertBefore inserts a new node in the correct location
+        /// </summary>
+        [Fact]
+        public void InsertBefore_InsertsInCorrectSlot()
+        {
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            testList.InsertBefore(1, 88);
+            Assert.Equal(88,testList.Current.Next.Value);
+        }
+
+        /// <summary>
+        /// Verifies that InsertBefore inserts a new node at Head location
+        /// </summary>
+        [Fact]
+        public void InsertBefore_InsertsNewHead()
+        {
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            testList.InsertBefore(-100, 88);
+            Assert.Equal(88, testList.Head.Value);
+        }
+        
+        /// <summary>
+        /// Verifies that InsertAfter inserts a new node in the correct location
+        /// </summary>
+        [Fact]
+        public void InsertAfter_InsertsInCorrectSlot()
+        {
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            testList.InsertAfter(1, 88);
+            Assert.Equal(88, testList.Current.Next.Value);
+        }
+
+        /// <summary>
+        /// Verifies that InsertAfter inserts a new node in the correct location
+        /// </summary>
+        [Fact]
+        public void InsertAfter_InsertsAtEnd()
+        {
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            testList.InsertAfter(0, 88);
+            Assert.Equal(88, testList.Current.Next.Value);
+        }
+
+        /// <summary>
+        /// Verifies that Append inserts a new node at the end of the list
+        /// </summary>
+        [Fact]
+        public void Append_InsertsAtEnd()
+        {
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            testList.Append(88);
+            testList.Current = testList.Current.Next;
+            Assert.Equal(88, testList.Current.Value);
+        }
     }
 }
