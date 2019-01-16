@@ -89,7 +89,6 @@ namespace linked_list.Classes
             Node node = new Node(value);
 
             Current.Next = node;
-
         }
 
         /// <summary>
@@ -152,6 +151,30 @@ namespace linked_list.Classes
                     Current = Current.Next;
                 }
             }
+        }
+
+        public int FindFromEnd(int k)
+        {
+            // count nodes in list
+            int counter = 0;
+            Current = Head;
+            while(Current.Next != null)
+            {
+                Current = Current.Next;
+                counter++;
+            }
+
+            // set target node #
+            counter -= k;
+
+            // traverse from beginning to target node
+            Current = Head;
+            while(counter > 0)
+            {
+                Current = Current.Next;
+                counter--;
+            }
+            return Current.Value;
         }
     }
 }
