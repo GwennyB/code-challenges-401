@@ -17,14 +17,15 @@ Create a LinkedList class with the following properties and methods:
  - Print (method): Console prints the values of all nodes in the list
  - InsertBefore (method): Instantiates a new node (of specified value) and inserts into the list BEFORE an existing node (of other specified value). If no match exists, no node is inserted.
  - InsertAfter (method): Same as InsertBefore, except it inserts the new node AFTER the existing node (or none if no match);
- - FindFromEnd (method): 
+ - FindFromEnd (method): Finds the node 'k' spots from the end of a list and returns the value of its predecessor. Whiteboard solution for this method shown below.
   *** default constructor only - no custom constructor defined ***
+ ![whiteboard soln](assets/kth-from-end-whiteboarding.jpg)
 
 ## Approach & Efficiency
 LinkedList.Insert adds a new node, points it to the previous 'Head' as 'Next', and makes it the new 'Head' in just 3 steps. Time complexity is O(1) (since it performs this set of operations just once regardless of the size of the linked list). Space complexity is O(1) since only a fixed amount of space is allocated (regardless of list size).
 LinkedList.Includes starts at 'Head' and compares the passed-in value to each node in turn. Time complexity is O(n) (since - at worst, when the matching value is the tail node - it performs this operation for every node in the linked list). Space complexity is O(1) since only a fixed amount of space is allocated (regardless of list size).
 LinkedList.Print visits each node once, so time complexity is O(n). No new memory is allocated.
-LinkedList.InsertBefore and .InsertAfter have same time and space complexity as .Includes.
+LinkedList.InsertBefore, .InsertAfter, and .FindFromEnd have same time and space complexity as .Includes because they all traverse the entire list at least once, but no more than twice (worst case).
 
 ## Solution
 This challenge included a set of unit tests verifying that:
