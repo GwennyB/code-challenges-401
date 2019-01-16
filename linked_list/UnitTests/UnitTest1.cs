@@ -190,5 +190,21 @@ namespace UnitTests
             testList.Current = testList.Current.Next;
             Assert.Equal(88, testList.Current.Value);
         }
+
+        [Theory]
+        [InlineData(2, 4)]
+        [InlineData(5, 1)]
+        [InlineData(6, -999999999)]
+        public void FindFromEnd(int k, int value)
+        {
+            LinkedList testList = new LinkedList();
+            int[] testPoints = new int[] { 6, 5, 4, 3, 2, 1 };
+            foreach (int point in testPoints)
+            {
+                testList.Insert(point);
+            }
+            Assert.Equal(value, testList.FindFromEnd(k));
+        }
+
     }
 }

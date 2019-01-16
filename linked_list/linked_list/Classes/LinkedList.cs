@@ -57,7 +57,7 @@ namespace linked_list.Classes
             if (Head != null)
             {
                 Current = Head;
-                Console.Write($"{ Current.Value } => ");
+                Console.Write($"Head => {Current.Value} => ");
                 while (Current.Next != null)
                 {
                     Current = Current.Next;
@@ -161,7 +161,7 @@ namespace linked_list.Classes
         public int FindFromEnd(int k)
         {
             // count nodes in list
-            int counter = 0;
+            int counter = 1;
             Current = Head;
             while(Current.Next != null)
             {
@@ -170,7 +170,7 @@ namespace linked_list.Classes
             }
 
             // check whether list contains more than k elements
-            if (k > counter)
+            if (k >= counter)
             { return -999999999; }
 
             // set target node #
@@ -178,11 +178,12 @@ namespace linked_list.Classes
 
             // traverse from beginning to target node
             Current = Head;
-            while(counter > 0)
+            while(counter > 1)
             {
                 Current = Current.Next;
                 counter--;
             }
+            
             return Current.Value;
         }
     }
