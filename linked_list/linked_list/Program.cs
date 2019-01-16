@@ -32,6 +32,10 @@ namespace linked_list
                 testList.Current = testList.Current.Next;
             }
             testList.Print();
+
+            int kthFromEndValue = testList.FindFromEnd(3);
+            Console.WriteLine($"3 nodes from end: {kthFromEndValue}");
+            Console.ReadLine();
         }
     }
 }
