@@ -19,19 +19,30 @@ namespace linked_list
             //list.InsertAfter(2, 999);
             //list.InsertBefore(2, 888);
             //list.Print();
+            //testList.Append(88);
 
             LinkedList testList = new LinkedList();
-            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
+            int[] testPoints = new int[] { 5, 4, 3, 2, 1 };
             foreach (int point in testPoints)
             {
                 testList.Insert(point);
             }
-            testList.Append(88);
-            while (testList.Current.Next != null)
-            {
-                testList.Current = testList.Current.Next;
-            }
+
             testList.Print();
+
+            int kthFromEndValue = testList.FindFromEnd(2);
+            Console.WriteLine($"2 nodes from end: {kthFromEndValue}");
+
+            kthFromEndValue = testList.FindFromEnd(4);
+            Console.WriteLine($"4 nodes from end: {kthFromEndValue}");
+
+            kthFromEndValue = testList.FindFromEnd(5);
+            Console.WriteLine($"5 nodes from end: {kthFromEndValue}");
+
+            kthFromEndValue = testList.FindFromEnd(6);
+            Console.WriteLine($"6 nodes from end: {kthFromEndValue}");
+
+            Console.ReadLine();
         }
     }
 }

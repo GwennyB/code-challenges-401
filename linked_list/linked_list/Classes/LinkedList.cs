@@ -57,7 +57,7 @@ namespace linked_list.Classes
             if (Head != null)
             {
                 Current = Head;
-                Console.Write($"{ Current.Value } => ");
+                Console.Write($"Head => {Current.Value} => ");
                 while (Current.Next != null)
                 {
                     Current = Current.Next;
@@ -89,7 +89,6 @@ namespace linked_list.Classes
             Node node = new Node(value);
 
             Current.Next = node;
-
         }
 
         /// <summary>
@@ -152,6 +151,40 @@ namespace linked_list.Classes
                     Current = Current.Next;
                 }
             }
+        }
+
+        /// <summary>
+        /// Finds the k-th node from the end of a list and returns the value of its predecessor
+        /// </summary>
+        /// <param name="k"> number of nodes to count back from end </param>
+        /// <returns> value of node preceding k-th from end </returns>
+        public int FindFromEnd(int k)
+        {
+            // count nodes in list
+            int counter = 1;
+            Current = Head;
+            while(Current.Next != null)
+            {
+                Current = Current.Next;
+                counter++;
+            }
+
+            // check whether list contains more than k elements
+            if (k >= counter)
+            { return -999999999; }
+
+            // set target node #
+            counter -= k;
+
+            // traverse from beginning to target node
+            Current = Head;
+            while(counter > 1)
+            {
+                Current = Current.Next;
+                counter--;
+            }
+            
+            return Current.Value;
         }
     }
 }

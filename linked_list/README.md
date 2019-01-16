@@ -17,6 +17,7 @@ Create a LinkedList class with the following properties and methods:
  - Print (method): Console prints the values of all nodes in the list
  - InsertBefore (method): Instantiates a new node (of specified value) and inserts into the list BEFORE an existing node (of other specified value). If no match exists, no node is inserted.
  - InsertAfter (method): Same as InsertBefore, except it inserts the new node AFTER the existing node (or none if no match);
+ - FindFromEnd (method): 
   *** default constructor only - no custom constructor defined ***
 
 ## Approach & Efficiency
@@ -27,13 +28,15 @@ LinkedList.InsertBefore and .InsertAfter have same time and space complexity as 
 
 ## Solution
 This challenge included a set of unit tests verifying that:
- - Includes returns 'false' when the checked value isn't present in the linked list
- - Includes returns 'true' when a multi-node list contains the checked value ***
- - Includes returns 'true' when a single node list contains the checked value
- - Insert adds new nodes ***
- - Insert assigns the correct value of 'Next' when instantiating new 'Head'
- - Node constructor properly creates new nodes ***
+  - Includes returns 'false' when the checked value isn't present in the linked list
+  - Includes returns 'true' when a multi-node list contains the checked value ***
+  - Includes returns 'true' when a single node list contains the checked value
+  - Insert adds new nodes ***
+  - Insert assigns the correct value of 'Next' when instantiating new 'Head'
+  - Node constructor properly creates new nodes ***
+  - FindFromEnd returns correct node's value if present, or -999999999 if search parameter exceeds list length
 
    *** checked 0, positive integers of multiple orders, negative values of multiple orders, positive double converted to int
 
  ![unit tests](assets/unit-tests-all-pass.PNG)
+ ![FindFromEnd unit tests](assets/FindFromEnd-unit-tests-all-pass.PNG)
