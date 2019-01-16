@@ -153,6 +153,11 @@ namespace linked_list.Classes
             }
         }
 
+        /// <summary>
+        /// Finds the k-th node from the end of a list and returns the value of its predecessor
+        /// </summary>
+        /// <param name="k"> number of nodes to count back from end </param>
+        /// <returns> value of node preceding k-th from end </returns>
         public int FindFromEnd(int k)
         {
             // count nodes in list
@@ -163,6 +168,10 @@ namespace linked_list.Classes
                 Current = Current.Next;
                 counter++;
             }
+
+            // check whether list contains more than k elements
+            if (k > counter)
+            { return -999999999; }
 
             // set target node #
             counter -= k;

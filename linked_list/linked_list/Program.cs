@@ -33,8 +33,12 @@ namespace linked_list
             }
             testList.Print();
 
-            int kthFromEndValue = testList.FindFromEnd(3);
-            Console.WriteLine($"3 nodes from end: {kthFromEndValue}");
+            int kthFromEndValue = testList.FindFromEnd(2);
+            Console.WriteLine($"2 nodes from end: {kthFromEndValue}");
+            kthFromEndValue = testList.FindFromEnd(5);
+            Console.WriteLine($"5 nodes from end: {kthFromEndValue}");
+            kthFromEndValue = testList.FindFromEnd(10);
+            Console.WriteLine($"10 nodes from end: {kthFromEndValue}");
             Console.ReadLine();
         }
     }
