@@ -71,24 +71,61 @@ namespace UnitTests
         /// returns properly merged list when lists are same length
         /// </summary>
         [Fact]
-        public void Merge_MergesWhenListsSameLength()
+        public void Merge_MergesWhenAIsLonger()
         {
             LinkedList listA = Program.BuildList(3);
-            LinkedList listB = Program.BuildList(3);
+            LinkedList listB = Program.BuildList(2);
             listA.Current = listA.Head;
             listB.Current = listB.Head;
-            int[] correctMerge = new int[6];
-            for (int i = 0; i < 6; i += 2)
+            int[] correctMerge = new int[5];
+            for (int i = 0; i < 5; i += 2)
             {
                 correctMerge[i] = listA.Current.Value;
-                correctMerge[i + 1] = listB.Current.Value;
                 listA.Current = listA.Current.Next;
-                listB.Current = listB.Current.Next;
+                if (i < 4 )
+                {
+                    correctMerge[i + 1] = listB.Current.Value;
+                    listB.Current = listB.Current.Next;
+                }
             }
             Program.Merge(listA, listB);
             listA.Current = listA.Head;
             bool match = true;
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 5; i++)
+            {
+                if (listA.Current.Value != correctMerge[i])
+                {
+                    match = false;
+                }
+                listA.Current = listA.Current.Next;
+            }
+            Assert.True(match);
+        }
+
+        /// <summary>
+        /// returns properly merged list when lists are same length
+        /// </summary>
+        [Fact]
+        public void Merge_MergesWhenAIsShorter()
+        {
+            LinkedList listA = Program.BuildList(2);
+            LinkedList listB = Program.BuildList(3);
+            listA.Current = listA.Head;
+            listB.Current = listB.Head;
+            int[] correctMerge = new int[5];
+            for (int i = 0; i < 3; i += 2)
+            {
+                correctMerge[i] = listA.Current.Value;
+                listA.Current = listA.Current.Next;
+
+                correctMerge[i + 1] = listB.Current.Value;
+                listB.Current = listB.Current.Next;
+            }
+            correctMerge[4] = listB.Current.Value;
+            Program.Merge(listA, listB);
+            listA.Current = listA.Head;
+            bool match = true;
+            for (int i = 0; i < 5; i++)
             {
                 if (listA.Current.Value != correctMerge[i])
                 {

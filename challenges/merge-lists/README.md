@@ -17,6 +17,10 @@ ListB is the 'donor' and ListA is the 'recipient'. Each ListB node (in turn) beg
 No additional memory is allocated for these steps, so space efficiency is O(1).
 Both lists are traversed exactly once (regardless of length), so time efficiency is O(n).
 
+## Testing
+Tests verify that BuildList can build a list of specified size (including an empty one), that Merge produces a properly merged list when the lists are the same size or when either list is longer than the other.
+
+
 ## Solution
 ![whiteboard](assets/ll-merge-whiteboard.jpg)
 
