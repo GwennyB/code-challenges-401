@@ -129,18 +129,11 @@ namespace linked_list.Classes
         {
             Current = Head;
 
-            if (Current.Value == value)
-            {
-                Insert(newValue);
-                return;
-            }
-
             while (Current.Next != null)
             {
-                if (Current.Next.Value == value)
+                if (Current.Value == value)
                 {
                     Node node = new Node(newValue);
-                    Current = Current.Next;
                     node.Next = Current.Next;
                     Current.Next = node;
                     return;
@@ -150,6 +143,12 @@ namespace linked_list.Classes
                 {
                     Current = Current.Next;
                 }
+            }
+            if (Current.Value == value)
+            {
+                Node node = new Node(newValue);
+                Current.Next = node;
+                return;
             }
         }
 
