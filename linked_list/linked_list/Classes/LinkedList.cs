@@ -144,6 +144,12 @@ namespace linked_list.Classes
                     Current = Current.Next;
                 }
             }
+            if (Current.Value == value)
+            {
+                Node node = new Node(newValue);
+                Current.Next = node;
+                return;
+            }
         }
 
         /// <summary>

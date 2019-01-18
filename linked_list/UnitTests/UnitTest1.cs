@@ -170,6 +170,11 @@ namespace UnitTests
             {
                 testList.Insert(point);
             }
+            testList.Current = testList.Head;
+            while (testList.Current.Next != null)
+            {
+                testList.Current = testList.Current.Next;
+            }
             testList.InsertAfter(0, 88);
             Assert.Equal(88, testList.Current.Next.Value);
         }
