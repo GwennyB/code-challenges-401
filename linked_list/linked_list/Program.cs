@@ -18,7 +18,8 @@ namespace linked_list
             list.Insert(5);
             list.InsertAfter(5, 99);
             //list.InsertBefore(2, 888);
-            list.Print();
+            //list.Print();
+            list.PrintRec(list.Head);
             //testList.Append(88);
 
             //LinkedList testList = new LinkedList();
