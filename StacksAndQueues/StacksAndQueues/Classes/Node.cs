@@ -4,17 +4,17 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Node
+    class Node<T>
     {
-        public int Value { get; set; }
+        public T Value { get; set; }
 
-        public Node Next { get; set; }
+        public Node<T> Next { get; set; }
 
         /// <summary>
         /// constructs new node of specified value, and points it into the ether
         /// </summary>
         /// <param name="value"> value to assign to the new node </param>
-        public Node(int value)
+        public Node(T value)
         {
             Value = value;
             Next = null;

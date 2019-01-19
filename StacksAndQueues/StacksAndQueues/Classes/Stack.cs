@@ -4,18 +4,9 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Stack
+    class Stack<T>
     {
-        public Node Top { get; set; }
-
-        /// <summary>
-        /// constructs a new stack and puts the received node at its top
-        /// </summary>
-        /// <param name="node"> ref to node to add to new stack </param>
-        public Stack(Node node)
-        {
-            Top = node;
-        }
+        public Node<T> Top { get; set; }
 
         /// <summary>
         /// constructs a new empty stack
@@ -26,12 +17,21 @@ namespace StacksAndQueues.Classes
         }
 
         /// <summary>
+        /// constructs a new stack and puts the received node at its top
+        /// </summary>
+        /// <param name="node"> ref to node to add to new stack </param>
+        public Stack(Node<T> node)
+        {
+            Top = node;
+        }
+
+        /// <summary>
         /// constructs a new node with a specified value and puts it at the top of the stack
         /// </summary>
         /// <param name="value"> new node's value </param>
-        public void Push(int value)
+        public void Push(T value)
         {
-            Node node = new Node(value);
+            Node<T> node = new Node<T>(value);
             node.Next = Top;
             Top = node;
         }
@@ -39,22 +39,22 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// extracts the top node from a stack and resets Top to the next node down
         /// </summary>
-        /// <returns> ref to the extracted node </returns>
-        public Node Pop()
+        /// <returns> value of extracted node </returns>
+        public T Pop()
         {
-            Node temp = Top;
+            Node<T> temp = Top;
             Top = Top.Next;
             temp.Next = null;
-            return temp;
+            return temp.Value;
         }
 
         /// <summary>
         /// reveals the top node in a stack
         /// </summary>
         /// <returns> ref to the top node in the stack </returns>
-        public Node Peek()
+        public T Peek()
         {
-            return Top;
+            return Top.Value;
         }
     }
 }

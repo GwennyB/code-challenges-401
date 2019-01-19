@@ -4,16 +4,25 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Queue
+    class Queue<T>
     {
-        public Node Front { get; set; }
-        public Node Rear { get; set; }
+        public Node<T> Front { get; set; }
+        public Node<T> Rear { get; set; }
 
+        /// <summary>
+        /// creates new empty queue and points Front and Rear into the ether
+        /// </summary>
+        public Queue()
+        {
+            Front = null;
+            Rear = null;
+        }
+        
         /// <summary>
         /// creates new queue and assigns the specified node as its only member (Front and Rear)
         /// </summary>
         /// <param name="node"> ref to the node to add to new queue </param>
-        public Queue(Node node)
+        public Queue(Node<T> node)
         {
             Front = node;
             Rear = node;
@@ -23,32 +32,33 @@ namespace StacksAndQueues.Classes
         /// attaches a new node of specified value to the back of a queue, and assigns it as Rear
         /// </summary>
         /// <param name="value"> ref to the node to add to rear of queue </param>
-        public void Enqueue(int value)
+        public void Enqueue(T value)
         {
-            Node node = new Node(value);
+            Node<T> node = new Node<T>(value);
             Rear.Next = node;
             Rear = node;
         }
 
         /// <summary>
-        /// extracts/returns the node at the front of a queue, and assigns Front to next in line
+        /// extracts the node at the front of a queue, assigns Front to next in line,
+        /// and returns the extracted node's value
         /// </summary>
-        /// <returns> ref to the node extracted from front of queue </returns>
-        public Node Dequeue()
+        /// <returns> value of node extracted from front of queue </returns>
+        public T Dequeue()
         {
-            Node temp = Front;
+            Node<T> temp = Front;
             Front = Front.Next;
             temp.Next = null;
-            return temp;
+            return temp.Value;
         }
 
         /// <summary>
         /// reveals the front node in a queue
         /// </summary>
         /// <returns> ref to the front node in the queue </returns>
-        public Node Peek()
+        public T Peek()
         {
-            return Front;
+            return Front.Value;
         }
     }
 }
