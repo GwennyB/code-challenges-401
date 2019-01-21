@@ -1,5 +1,5 @@
 # data-structures-and-algorithms
-CF 401 .NET - Code Challenges
+CF 401 .NET - Code Challenges (C#)
 
 ## Introduction
 This is a set of solutions for assigned code challenges that focus on learning and practicing data structures and algorithms.
