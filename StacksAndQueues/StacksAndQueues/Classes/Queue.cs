@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Queue<T>
+    public class Queue<T>
     {
         public Node<T> Front { get; set; }
         public Node<T> Rear { get; set; }
@@ -32,11 +32,20 @@ namespace StacksAndQueues.Classes
         /// attaches a new node of specified value to the back of a queue, and assigns it as Rear
         /// </summary>
         /// <param name="value"> ref to the node to add to rear of queue </param>
-        public void Enqueue(T value)
+        public Node<T> Enqueue(T value)
         {
             Node<T> node = new Node<T>(value);
-            Rear.Next = node;
-            Rear = node;
+            if(Front == null)
+            {
+                Front = node;
+                Rear = node;
+            }
+            else
+            {
+                Rear.Next = node;
+                Rear = node;
+            }
+            return node;
         }
 
         /// <summary>
@@ -56,9 +65,9 @@ namespace StacksAndQueues.Classes
         /// reveals the front node in a queue
         /// </summary>
         /// <returns> ref to the front node in the queue </returns>
-        public T Peek()
+        public Node<T> Peek()
         {
-            return Front.Value;
+            return Front;
         }
     }
 }

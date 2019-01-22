@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Stack<T>
+    public class Stack<T>
     {
         public Node<T> Top { get; set; }
 
@@ -52,9 +52,9 @@ namespace StacksAndQueues.Classes
         /// reveals the top node in a stack
         /// </summary>
         /// <returns> ref to the top node in the stack </returns>
-        public T Peek()
+        public Node<T> Peek()
         {
-            return Top.Value;
+            return Top;
         }
     }
 }
