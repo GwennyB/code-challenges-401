@@ -50,6 +50,38 @@ namespace linked_list.Classes
         }
 
         /// <summary>
+        /// Finds a value in a linked list.
+        /// Caller-facing: Calls FindRec to complete the heavy lifting. Sends Head as start point.
+        /// </summary>
+        /// <param name="value"> value to look for </param>
+        /// <returns> matching node (or null if not found) </returns>
+        public Node Find(int value)
+        {
+            return FindRec(value, Head);
+        }
+
+        /// <summary>
+        /// Finds a value in a linked list using recursion.
+        /// Back-facing: Accessible only to local methods. Does the heavy lifting for 'Find(value)'.
+        /// </summary>
+        /// <param name="value"> value to look for </param>
+        /// <param name="node"> node at which to start search </param>
+        /// <returns> matching node (or null if not found) </returns>
+        private Node FindRec(int value, Node node)
+        {
+            if(node.Value == value)
+            {
+                return node;
+            }
+            if(node.Next == null)
+            {
+                return node.Next;
+            }
+
+            return FindRec(value, node.Next);
+        }
+
+        /// <summary>
         /// Prints the values of all nodes in a linked list
         /// </summary>
         public void Print()
@@ -71,6 +103,22 @@ namespace linked_list.Classes
                 Console.WriteLine("List is empty");
                 Console.ReadLine();
             }
+        }
+
+        /// <summary>
+        /// Prints the values of all nodes in a linked list
+        /// Uses recursion
+        /// </summary>
+        /// <param name="node"></param>
+        public void PrintRec(Node node)
+        {
+            if(node.Next == null)
+            {
+                Console.WriteLine(node.Value);
+                return;
+            }
+            Console.Write($"{node.Value} => ");
+            PrintRec(node.Next);
         }
 
         /// <summary>
