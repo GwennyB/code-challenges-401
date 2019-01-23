@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PseudoQueue.Classes
 {
-    class Stack<T>
+    public class Stack<T>
     {
         public Node<T> Top { get; set; }
 
@@ -40,12 +40,12 @@ namespace PseudoQueue.Classes
             try
             {
                 Top = Top.Next;
+                node.Next = null;
             }
             catch (Exception)
             {
                 Console.WriteLine("Exception: Queue is empty.");
             }
-            node.Next = null;
             return node;
         }
 

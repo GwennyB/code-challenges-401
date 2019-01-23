@@ -4,9 +4,12 @@ using System.Text;
 
 namespace PseudoQueue.Classes
 {
-    class PseudoQ<T>
+    public class PseudoQ<T>
     {
+        // backing stores
         private Node<T> _garbageNode;
+
+        // properties
         public Node<T> Front
         {
             get
@@ -72,8 +75,8 @@ namespace PseudoQueue.Classes
         /// <param name="value"> value of added node </param>
         public void Enqueue(T value)
         {
-            Offload(Frontend, Backend);
-            Backend.Push(value);
+            Offload(Backend, Frontend);
+            Frontend.Push(value);
         }
 
         /// <summary>
@@ -83,8 +86,8 @@ namespace PseudoQueue.Classes
         /// <returns> removed node </returns>
         public Node<T> Dequeue()
         {
-            Offload(Backend, Frontend);
-            return Frontend.Pop();
+            Offload(Frontend, Backend);
+            return Backend.Pop();
         }
 
         /// <summary>
