@@ -7,21 +7,33 @@ namespace PseudoQueue
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("\nBuild queue to challenge example.");
             PseudoQ<int> qu = new PseudoQ<int>();
+            qu.Enqueue(20);
+            qu.Enqueue(15);
+            qu.Enqueue(10);
             qu.Print();
             Console.ReadLine();
+            Console.Write("Adding 5 to the rear of the queue: ");
             qu.Enqueue(5);
-            qu.Enqueue(4);
-            qu.Enqueue(3);
-            qu.Enqueue(2);
-            qu.Enqueue(1);
+            qu.Print();
+            Console.ReadLine();
+            qu.Dequeue();
+            qu.Dequeue();
+            qu.Dequeue();
+            qu.Dequeue();
+
+            Console.WriteLine("\nQueue reset.");
+            qu.Enqueue(20);
+            qu.Enqueue(15);
+            qu.Enqueue(10);
+            qu.Enqueue(5);
+            qu.Print();
+            Console.ReadLine();
+            Console.Write($"Removed: {qu.Dequeue().Value}; New queue: ");
             qu.Print();
             Console.ReadLine();
 
-            qu.Dequeue();
-            qu.Dequeue();
-            qu.Print();
-            Console.ReadLine();
         }
     }
 }

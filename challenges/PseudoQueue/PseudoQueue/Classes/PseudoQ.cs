@@ -95,14 +95,14 @@ namespace PseudoQueue.Classes
         /// </summary>
         public void Print()
         {
-            Offload(Frontend, Backend);
-            Console.Write("Head => ");
+            Offload(Backend, Frontend);
+            Console.Write("Rear => ");
             try
             {
-                while (Backend.Top != null)
+                while (Frontend.Top != null)
                 {
-                    Console.Write($"{Backend.Top.Value} => ");
-                    Frontend.Push(Backend.Pop().Value);
+                    Console.Write($"{Frontend.Top.Value} => ");
+                    Backend.Push(Frontend.Pop().Value);
                 }
             }
             catch (NullReferenceException)
@@ -111,7 +111,7 @@ namespace PseudoQueue.Classes
             }
             finally
             {
-                Console.WriteLine("null");
+                Console.WriteLine("Front");
             }
         }
     }
