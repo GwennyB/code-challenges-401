@@ -45,5 +45,8 @@ Unlike a true 'queue', each method requires full traversal of the dataset in ord
 
 ## Solution
 This challenge included a set of unit tests verifying that:
-  ??? DESCRIBE UNIT TESTS HERE ???
+  - constructors build objects correctly
+  - methods that remove nodes return the value of the correct node and reassign endpoints correctly
+  - methods that add new nodes attach them correctly and reassign endpoints correctly
+  - methods that inspect nodes return a reference to the correct node
 ![unit tests](assets/unit-tests.PNG)
