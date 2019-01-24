@@ -14,6 +14,10 @@ namespace FIFOAnimalShelter
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// demonstrates Enqueue and Dequeue behaviors for standard and edge cases
+        /// </summary>
+        /// <param name="shelter"> AnimalShelter object (empty) to test behaviors </param>
         static void FIFOAnimalShelter(AnimalShelter shelter)
         {
             Console.WriteLine("*** EMPTY SHELTER ***");
