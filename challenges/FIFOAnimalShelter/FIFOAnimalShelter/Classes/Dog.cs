@@ -9,6 +9,7 @@ namespace FIFOAnimalShelter.Classes
 
         public Dog(string name)
         {
+            Species = "dog";
             Name = name;
             Next = null;
         }

@@ -19,6 +19,10 @@ namespace FIFOAnimalShelter.Classes
         {
             newAnimal.Next = Rear;
             Rear = newAnimal;
+            if(Front == null)
+            {
+                Front = newAnimal;
+            }
         }
 
         public Animal Dequeue()
@@ -35,6 +39,11 @@ namespace FIFOAnimalShelter.Classes
                 Console.WriteLine("The shelter is empty!");
             }
             return temp;
+        }
+
+        public Animal Peek()
+        {
+            return Front;
         }
     }
 }
