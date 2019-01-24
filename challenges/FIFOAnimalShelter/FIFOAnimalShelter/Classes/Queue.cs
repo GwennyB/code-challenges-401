@@ -17,22 +17,29 @@ namespace FIFOAnimalShelter.Classes
 
         public void Enqueue(Animal newAnimal)
         {
-            newAnimal.Next = Rear;
-            Rear = newAnimal;
+            if(Rear != null)
+            {
+                Rear.Next = newAnimal;
+            }
             if(Front == null)
             {
                 Front = newAnimal;
             }
+            Rear = newAnimal;
         }
 
         public Animal Dequeue()
         {
-            Animal temp = new Animal();
+            Animal temp = null;
             temp = Front;
             try
             {
                 Front = Front.Next;
                 temp.Next = null;
+                if (Front == null)
+                {
+                    Rear = null;
+                }
             }
             catch (Exception)
             {

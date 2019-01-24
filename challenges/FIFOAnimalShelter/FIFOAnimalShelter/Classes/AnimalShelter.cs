@@ -52,6 +52,7 @@ namespace FIFOAnimalShelter.Classes
             }
 
             Queue hold;
+
             hold = Primary;
             Primary = Helper;
             Helper = hold;
