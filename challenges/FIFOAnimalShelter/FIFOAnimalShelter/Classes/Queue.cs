@@ -9,12 +9,19 @@ namespace FIFOAnimalShelter.Classes
         public Animal Front { get; set; }
         public Animal Rear { get; set; }
 
+        /// <summary>
+        /// constructs new empty Queue object and points both Front and Rear at null
+        /// </summary>
         public Queue()
         {
             Front = null;
             Rear = null;
         }
 
+        /// <summary>
+        /// adds new animal to Rear of queue
+        /// </summary>
+        /// <param name="newAnimal"> animal to be added </param>
         public void Enqueue(Animal newAnimal)
         {
             if(Rear != null)
@@ -28,6 +35,10 @@ namespace FIFOAnimalShelter.Classes
             Rear = newAnimal;
         }
 
+        /// <summary>
+        /// removes and returns animal at Front of queue
+        /// </summary>
+        /// <returns> animal at Front, or null if empty queue </returns>
         public Animal Dequeue()
         {
             Animal temp = null;
@@ -48,6 +59,10 @@ namespace FIFOAnimalShelter.Classes
             return temp;
         }
 
+        /// <summary>
+        /// returns the animal at the Front of the queue
+        /// </summary>
+        /// <returns> animal at Front of queue </returns>
         public Animal Peek()
         {
             return Front;

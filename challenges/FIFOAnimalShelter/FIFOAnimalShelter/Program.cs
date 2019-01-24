@@ -49,6 +49,12 @@ namespace FIFOAnimalShelter
             adopted = shelter.Dequeue("cat");
             Console.WriteLine($"{adopted.Name} the {adopted.Species} has been adopted! {shelter.Primary.Front.Name} the {shelter.Primary.Front.Species} is first in line.");
 
+            Console.WriteLine("\n*** SOMEONE WANTS A PET-GRAB-BAG ***");
+            adopted = shelter.Dequeue("");
+            Console.WriteLine($"{adopted.Name} the {adopted.Species} has been adopted! {shelter.Primary.Front.Name} is first in line.");
+
+            Console.WriteLine("\n*** A TEENAGER WANTS A BABBOON ***");
+            adopted = shelter.Dequeue("babboon");
         }
     }
 }

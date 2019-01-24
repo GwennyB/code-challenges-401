@@ -6,7 +6,10 @@ namespace FIFOAnimalShelter.Classes
 {
     class Cat : Animal
     {
-
+        /// <summary>
+        /// constructs Cat object with specified name and pointing at null
+        /// </summary>
+        /// <param name="name"> new cat's name </param>
         public Cat(string name)
         {
             Species = "cat";
