@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Reference Include="StacksAndQueues">
-      <HintPath>..\..\..\..\StructuresAndAlgorithms\StacksAndQueues\StacksAndQueues\bin\Debug\netcoreapp2.2\StacksAndQueues.dll</HintPath>
+      <HintPath>..\..\..\StructuresAndAlgorithms\StacksAndQueues\StacksAndQueues\bin\Debug\netcoreapp2.2\StacksAndQueues.dll</HintPath>
     </Reference>
   </ItemGroup>
 

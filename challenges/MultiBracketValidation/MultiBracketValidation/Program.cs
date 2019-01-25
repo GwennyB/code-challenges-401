@@ -43,7 +43,7 @@ namespace MultiBracketValidation
                         brackets.Push(character);
                         break;
                     case ']':
-                        if(brackets.Top != null && brackets.Top.Value == '[')
+                        if (brackets.Top != null && brackets.Top.Value == '[')
                         {
                             brackets.Pop();
                         }
@@ -76,7 +76,7 @@ namespace MultiBracketValidation
                         break;
                 }
             }
-            if(brackets.Top != null)
+            if (brackets.Top != null)
             {
                 return false;
             }
