@@ -25,47 +25,34 @@ namespace MultiBracketValidation
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Checks passed-in strings for whether any brackets it contains are balanced.
+        /// ie - (), [], {}
+        /// </summary>
+        /// <param name="input"> string to check </param>
+        /// <returns> 'true' if balanced, 'false' if not </returns>
         public static bool MultiBracketValidation(string input)
         {
-            Stack<char> brackets = new Stack<char>();
             char[] charInput = input.ToCharArray();
-            foreach (char character in charInput)
+            Stack<char> openers = new Stack<char>();
+
+            char[] brackets = new char[] { '[', ']','{','}', '(',')' };
+
+            int isBracket = 0;
+
+            for(int i=0; i<charInput.Length; i++)
             {
-                switch (character)
+                isBracket = (Array.IndexOf(brackets, charInput[i]) == -1) ? -1 : (Array.IndexOf(brackets, charInput[i]) % 2);
+
+                switch (isBracket)
                 {
-                    case '[':
-                        brackets.Push(character);
+                    case 0:
+                        openers.Push(charInput[i]);
                         break;
-                    case '(':
-                        brackets.Push(character);
-                        break;
-                    case '{':
-                        brackets.Push(character);
-                        break;
-                    case ']':
-                        if (brackets.Top != null && brackets.Top.Value == '[')
+                    case 1:
+                        if (openers.Top != null && openers.Top.Value == brackets[Array.IndexOf(brackets,charInput[i])-1])
                         {
-                            brackets.Pop();
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                        break;
-                    case ')':
-                        if (brackets.Top != null && brackets.Top.Value == '(')
-                        {
-                            brackets.Pop();
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                        break;
-                    case '}':
-                        if (brackets.Top != null && brackets.Top.Value == '{')
-                        {
-                            brackets.Pop();
+                            openers.Pop();
                         }
                         else
                         {
@@ -76,7 +63,7 @@ namespace MultiBracketValidation
                         break;
                 }
             }
-            if (brackets.Top != null)
+            if (openers.Top != null)
             {
                 return false;
             }
