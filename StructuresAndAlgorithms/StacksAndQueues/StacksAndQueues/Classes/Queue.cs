@@ -31,7 +31,7 @@ namespace StacksAndQueues.Classes
         /// <summary>
         /// attaches a new node of specified value to the back of a queue, and assigns it as Rear
         /// </summary>
-        /// <param name="value"> ref to the node to add to rear of queue </param>
+        /// <param name="value"> ref to the node to add to rear of queue </param> 
         public Node<T> Enqueue(T value)
         {
             Node<T> node = new Node<T>(value);
