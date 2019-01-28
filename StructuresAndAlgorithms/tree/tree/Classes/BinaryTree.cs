@@ -44,10 +44,8 @@ namespace tree.Classes
                     PostOrderBottom(node.Right, values);
                 };
             }
-            else
-            {
-                values.Add(node.Value);
-            }
+            values.Add(node.Value);
+
             return values;
         }
 

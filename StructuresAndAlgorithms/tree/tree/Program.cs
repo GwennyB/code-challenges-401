@@ -7,38 +7,64 @@ namespace tree
     {
         static void Main(string[] args)
         {
-            BinaryTree<int> binTree = new BinaryTree<int>();
-            binTree = BuildBinTree(binTree);
 
-            BinarySearchTree<int> bsTree = new BinarySearchTree<int>();
-            bsTree = BuildBSTree(bsTree);
+            TestBinTree();
+
+            TestBSTree();
+
+            Console.ReadLine();
 
         }
 
-        public static BinaryTree<int> BuildBinTree(BinaryTree<int> tree)
+        public static BinaryTree BuildBinTree(BinaryTree tree)
         {
-            tree.Root = new Node<int>(1);
-            tree.Root.Left = new Node<int>(2);
-            tree.Root.Right = new Node<int>(3);
-            tree.Root.Left.Left = new Node<int>(4);
-            tree.Root.Left.Right = new Node<int>(5);
-            tree.Root.Right.Left = new Node<int>(4);
-            tree.Root.Right.Right = new Node<int>(5);
+            tree.Root = new Node(1);
+            tree.Root.Left = new Node(2);
+            tree.Root.Right = new Node(3);
+            tree.Root.Left.Left = new Node(4);
+            tree.Root.Left.Right = new Node(5);
+            tree.Root.Right.Left = new Node(6);
+            tree.Root.Right.Right = new Node(7);
             return tree;
         }
 
-        public static BinarySearchTree<int> BuildBSTree(BinarySearchTree<int> tree)
+        public static BinarySearchTree BuildBSTree(BinarySearchTree tree)
         {
-            tree.Root = new Node<int>(40);
-            tree.Root.Left = new Node<int>(30);
-            tree.Root.Right = new Node<int>(60);
-            tree.Root.Left.Left = new Node<int>(10);
-            tree.Root.Left.Right = new Node<int>(30);
-            tree.Root.Right.Left = new Node<int>(50);
-            tree.Root.Right.Right = new Node<int>(70);
+            tree.Root = new Node(40);
+            tree.Root.Left = new Node(30);
+            tree.Root.Right = new Node(60);
+            tree.Root.Left.Left = new Node(10);
+            tree.Root.Left.Right = new Node(30);
+            tree.Root.Right.Left = new Node(50);
+            tree.Root.Right.Right = new Node(70);
             return tree;
         }
 
+        public static void TestBinTree()
+        {
+            BinaryTree tree = new BinaryTree();
+            tree = BuildBinTree(tree);
+            Console.Write("PreOrder: ");
+            PrintTreeValues(tree.PreOrder());
+            Console.Write("InOrder: ");
+            PrintTreeValues(tree.InOrder());
+            Console.Write("PostOrder: ");
+            PrintTreeValues(tree.PostOrder());
+        }
 
+        public static void TestBSTree()
+        {
+            BinarySearchTree tree = new BinarySearchTree();
+            tree = BuildBSTree(tree);
+        }
+
+        public static void PrintTreeValues(int[] tree)
+        {
+            foreach (int value in tree)
+            {
+                Console.Write($"{value}=> ");
+            }
+            Console.WriteLine();
+        }
     }
 }
