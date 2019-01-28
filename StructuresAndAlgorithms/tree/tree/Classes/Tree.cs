@@ -4,10 +4,10 @@ using System.Text;
 
 namespace tree.Classes
 {
-    class Tree<T>
+    class Tree
     {
-        public Node<T> Root { get; set; }
-        public Node<T> Current { get; set; }
+        public Node Root { get; set; }
+        public Node Current { get; set; }
 
         public Tree()
         {
@@ -15,7 +15,7 @@ namespace tree.Classes
             Current = Root;
         }
 
-        public Tree(Node<T> node)
+        public Tree(Node node)
         {
             Root = node;
             Current = Root;

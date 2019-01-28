@@ -4,50 +4,25 @@ using System.Text;
 
 namespace tree.Classes
 {
-    class BinaryTree<T> : Tree<T>
+    class BinaryTree : Tree
     {
         public BinaryTree()
         {
             Root = null;
         }
 
-        public BinaryTree(Node<T> node)
+        public BinaryTree(Node node)
         {
             Root = node;
         }
 
-        //public void FindHoleBreadthFirst()
-        //{
-        //    Queue<T> queue = new Queue<T>();
-        //    if (Root != null)
-        //    {
-        //        queue = FillTreeQueue(Root, queue);
-        //    }
-        //    return queue;
-        //}
-
-        //private Queue<T> FillTreeQueue(Node<T> node, Queue<T> queue)
-        //{
-        //    queue.Enqueue(node.Value);
-        //    if (node.Left != null)
-        //    {
-        //        FillTreeQueue(node.Left);
-        //    }
-        //}
-
-        //public void Add(T value)
-        //{
-
-        //}
-
-        //public void Remove(T value)
-        //{
-
-        //}
-
-        public T[] PostOrder()
+        /// <summary>
+        /// scrapes values from all nodes in a binary tree and returns them in PostOrder
+        /// </summary>
+        /// <returns> array of tree values in PostOrder </returns>
+        public int[] PostOrder()
         {
-            List<T> values = new List<T>();
+            List<int> values = new List<int>();
             if(Root != null)
             {
                 values = PostOrderBottom(Root, values);
@@ -55,7 +30,11 @@ namespace tree.Classes
             return values.ToArray();
         }
 
-        private List<T> PostOrderBottom(Node<T> node, List<T> values)
+        /// <summary>
+        /// RECURSIVE HELPER: scrapes values from all nodes in a binary tree and returns them in PostOrder
+        /// </summary>
+        /// <returns> array of tree values in PostOrder </returns>
+        private List<int> PostOrderBottom(Node node, List<int> values)
         {
             if (node.Left != null)
             {
@@ -72,9 +51,13 @@ namespace tree.Classes
             return values;
         }
 
-        public T[] InOrder()
+        /// <summary>
+        /// scrapes values from all nodes in a binary tree and returns them in InOrder
+        /// </summary>
+        /// <returns> array of tree values in InOrder </returns>
+        public int[] InOrder()
         {
-            List<T> values = new List<T>();
+            List<int> values = new List<int>();
             if (Root != null)
             {
                 InOrderBottom(Root, values);
@@ -82,7 +65,11 @@ namespace tree.Classes
             return values.ToArray();
         }
 
-        private List<T> InOrderBottom(Node<T> node, List<T> values)
+        /// <summary>
+        /// RECURSIVE HELPER: scrapes values from all nodes in a binary tree and returns them in InOrder
+        /// </summary>
+        /// <returns> array of tree values in InOrder </returns>
+        private List<int> InOrderBottom(Node node, List<int> values)
         {
             if (node.Left != null)
             {
@@ -100,9 +87,13 @@ namespace tree.Classes
             return values;
         }
 
-        public T[] PreOrder()
+        /// <summary>
+        /// scrapes values from all nodes in a binary tree and returns them in PreOrder
+        /// </summary>
+        /// <returns> array of tree values in PreOrder </returns>
+        public int[] PreOrder()
         {
-            List<T> values = new List<T>();
+            List<int> values = new List<int>();
             if (Root != null)
             {
                 PreOrderBottom(Root, values);
@@ -110,7 +101,11 @@ namespace tree.Classes
             return values.ToArray();
         }
 
-        private List<T> PreOrderBottom(Node<T> node, List<T> values)
+        /// <summary>
+        /// RECURSIVE HELPER: scrapes values from all nodes in a binary tree and returns them in PreOrder
+        /// </summary>
+        /// <returns> array of tree values in PreOrder </returns>
+        private List<int> PreOrderBottom(Node node, List<int> values)
         {
             values.Add(node.Value);
             if (node.Left != null)

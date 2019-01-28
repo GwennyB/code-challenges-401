@@ -4,13 +4,13 @@ using System.Text;
 
 namespace tree.Classes
 {
-    class Node<T>
+    class Node
     {
-        public T Value { get; set; }
-        public Node<T> Left { get; set; }
-        public Node<T> Right { get; set; }
+        public int Value { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
 
-        public Node(T value)
+        public Node(int value)
         {
             Value = value;
             Left = null;
