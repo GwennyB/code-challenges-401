@@ -21,6 +21,10 @@ namespace tree.Classes
 
         }
 
+        public void Remove(T value)
+        {
+
+        }
 
         public T[] PostOrder()
         {
@@ -64,6 +68,7 @@ namespace tree.Classes
             if (node.Left != null)
             {
                 InOrderBottom(node.Left, values);
+                values.Add(node.Value);
                 if (node.Right != null)
                 {
                     InOrderBottom(node.Right, values);
@@ -88,6 +93,7 @@ namespace tree.Classes
 
         public List<T> PreOrderBottom(Node<T> node, List<T> values)
         {
+            values.Add(node.Value);
             if (node.Left != null)
             {
                 PreOrderBottom(node.Left, values);
@@ -95,10 +101,6 @@ namespace tree.Classes
                 {
                     PreOrderBottom(node.Right, values);
                 };
-            }
-            else
-            {
-                values.Add(node.Value);
             }
             return values;
         }
