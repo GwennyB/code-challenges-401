@@ -39,11 +39,11 @@ namespace tree.Classes
             if (node.Left != null)
             {
                 PostOrderBottom(node.Left, values);
-                if(node.Right != null)
-                {
-                    PostOrderBottom(node.Right, values);
-                };
             }
+            if(node.Right != null)
+            {
+                PostOrderBottom(node.Right, values);
+            };
             values.Add(node.Value);
 
             return values;
@@ -72,24 +72,11 @@ namespace tree.Classes
             if (node.Left != null)
             {
                 InOrderBottom(node.Left, values);
-                values.Add(node.Value);
-                if (node.Right != null)
-                {
-                    InOrderBottom(node.Right, values);
-                };
             }
-            else if (node.Right != null)
+            values.Add(node.Value);
+            if (node.Right != null)
             {
                 InOrderBottom(node.Right, values);
-                values.Add(node.Value);
-                if (node.Left != null)
-                {
-                    InOrderBottom(node.Left, values);
-                };
-            }
-            else
-            {
-                values.Add(node.Value);
             }
             return values;
         }
@@ -118,11 +105,11 @@ namespace tree.Classes
             if (node.Left != null)
             {
                 PreOrderBottom(node.Left, values);
-                if (node.Right != null)
-                {
-                    PreOrderBottom(node.Right, values);
-                };
             }
+            if (node.Right != null)
+            {
+                PreOrderBottom(node.Right, values);
+            };
             return values;
         }
     }
