@@ -31,7 +31,7 @@ namespace tree
         public static BinarySearchTree BuildBSTree(BinarySearchTree tree)
         {
             tree.Root = new Node(40);
-            tree.Root.Left = new Node(30);
+            tree.Root.Left = new Node(20);
             tree.Root.Right = new Node(60);
             tree.Root.Left.Left = new Node(10);
             tree.Root.Left.Right = new Node(30);
@@ -56,13 +56,13 @@ namespace tree
         {
             BinarySearchTree tree = new BinarySearchTree();
             tree = BuildBSTree(tree);
-            Console.Write("PreOrder (original): ");
-            PrintTreeValues(tree.PreOrder());
+            Console.Write("InOrder (original): ");
+            PrintTreeValues(tree.InOrder());
             int value = 15;
             Console.WriteLine($"15 present? {tree.Contains(value)}");
             tree.Add(value);
-            Console.Write($"PreOrder (added {value}): ");
-            PrintTreeValues(tree.PreOrder());
+            Console.Write($"InOrder (added {value}): ");
+            PrintTreeValues(tree.InOrder());
             Console.WriteLine($"{value} present? {tree.Contains(value)}");
         }
 

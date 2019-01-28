@@ -24,22 +24,33 @@ namespace tree.Classes
         {
             Node newNode = new Node(value);
             Node current = Root;
+            Node last = null;
             while (current != null)
             {
                 if (value == current.Value)
                 {
+
                     return;
                 }
                 else if (value < current.Value)
                 {
+                    last = current;
                     current = current.Left;
                 }
                 else
                 {
+                    last = current;
                     current = current.Right;
                 }
             }
-            current.Value = value;
+            if(value < last.Value)
+            {
+                last.Left = newNode;
+            }
+            else
+            {
+                last.Right = newNode;
+            }
         }
         
         /// <summary>
@@ -52,7 +63,7 @@ namespace tree.Classes
             Node current = Root;
             while (current != null)
             {
-                if (value == current.Value)
+                if (current.Value == value)
                 {
                     return true;
                 }
