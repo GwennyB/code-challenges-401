@@ -16,15 +16,34 @@ namespace tree.Classes
             Root = node;
         }
 
-        public void Add(T value)
-        {
+        //public void FindHoleBreadthFirst()
+        //{
+        //    Queue<T> queue = new Queue<T>();
+        //    if (Root != null)
+        //    {
+        //        queue = FillTreeQueue(Root, queue);
+        //    }
+        //    return queue;
+        //}
 
-        }
+        //private Queue<T> FillTreeQueue(Node<T> node, Queue<T> queue)
+        //{
+        //    queue.Enqueue(node.Value);
+        //    if (node.Left != null)
+        //    {
+        //        FillTreeQueue(node.Left);
+        //    }
+        //}
 
-        public void Remove(T value)
-        {
+        //public void Add(T value)
+        //{
 
-        }
+        //}
+
+        //public void Remove(T value)
+        //{
+
+        //}
 
         public T[] PostOrder()
         {
@@ -36,7 +55,7 @@ namespace tree.Classes
             return values.ToArray();
         }
 
-        public List<T> PostOrderBottom(Node<T> node, List<T> values)
+        private List<T> PostOrderBottom(Node<T> node, List<T> values)
         {
             if (node.Left != null)
             {
@@ -63,7 +82,7 @@ namespace tree.Classes
             return values.ToArray();
         }
 
-        public List<T> InOrderBottom(Node<T> node, List<T> values)
+        private List<T> InOrderBottom(Node<T> node, List<T> values)
         {
             if (node.Left != null)
             {
@@ -91,7 +110,7 @@ namespace tree.Classes
             return values.ToArray();
         }
 
-        public List<T> PreOrderBottom(Node<T> node, List<T> values)
+        private List<T> PreOrderBottom(Node<T> node, List<T> values)
         {
             values.Add(node.Value);
             if (node.Left != null)
