@@ -16,6 +16,11 @@ namespace tree
 
         }
 
+        /// <summary>
+        /// populates BinaryTree for testing
+        /// </summary>
+        /// <param name="tree"> tree to populate</param>
+        /// <returns> populated tree </returns>
         public static BinaryTree BuildBinTree(BinaryTree tree)
         {
             tree.Root = new Node(1);
@@ -28,6 +33,11 @@ namespace tree
             return tree;
         }
 
+        /// <summary>
+        /// populates BinarySearchTree for testing
+        /// </summary>
+        /// <param name="tree"> tree to populate</param>
+        /// <returns> populated tree </returns>
         public static BinarySearchTree BuildBSTree(BinarySearchTree tree)
         {
             tree.Root = new Node(40);
@@ -40,32 +50,49 @@ namespace tree
             return tree;
         }
 
+        /// <summary>
+        /// tests BinaryTree methods
+        /// </summary>
         public static void TestBinTree()
         {
+            Console.WriteLine("Test Binary Tree");
             BinaryTree tree = new BinaryTree();
+            Console.WriteLine("Build tree...");
             tree = BuildBinTree(tree);
-            Console.Write("PreOrder: ");
+            Console.Write("Check 'PreOrder': ");
             PrintTreeValues(tree.PreOrder());
-            Console.Write("InOrder: ");
+            Console.Write("Check 'InOrder': ");
             PrintTreeValues(tree.InOrder());
-            Console.Write("PostOrder: ");
+            Console.Write("Check 'PostOrder': ");
             PrintTreeValues(tree.PostOrder());
         }
 
+        /// <summary>
+        /// tests BinarySearchTree methods
+        /// </summary>
         public static void TestBSTree()
         {
+            Console.WriteLine("\n- - - - - -\n");
+            Console.WriteLine("Test Binary Search Tree");
             BinarySearchTree tree = new BinarySearchTree();
             tree = BuildBSTree(tree);
+            Console.WriteLine("Build tree...");
             Console.Write("InOrder (original): ");
             PrintTreeValues(tree.InOrder());
-            int value = 15;
-            Console.WriteLine($"15 present? {tree.Contains(value)}");
+            int value = 63;
+            Console.WriteLine("Check 'Add'...");
+            Console.WriteLine($"{value} present? {tree.Contains(value)}");
             tree.Add(value);
             Console.Write($"InOrder (added {value}): ");
             PrintTreeValues(tree.InOrder());
+            Console.WriteLine("Check 'Contains'...");
             Console.WriteLine($"{value} present? {tree.Contains(value)}");
         }
 
+        /// <summary>
+        /// prints node values returned by Pre/In/PostOrder method
+        /// </summary>
+        /// <param name="tree"></param>
         public static void PrintTreeValues(int[] tree)
         {
             foreach (int value in tree)

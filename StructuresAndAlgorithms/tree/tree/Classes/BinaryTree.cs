@@ -4,7 +4,7 @@ using System.Text;
 
 namespace tree.Classes
 {
-    class BinaryTree : Tree
+    public class BinaryTree : Tree
     {
         public BinaryTree()
         {
@@ -76,6 +76,15 @@ namespace tree.Classes
                 if (node.Right != null)
                 {
                     InOrderBottom(node.Right, values);
+                };
+            }
+            else if (node.Right != null)
+            {
+                InOrderBottom(node.Right, values);
+                values.Add(node.Value);
+                if (node.Left != null)
+                {
+                    InOrderBottom(node.Left, values);
                 };
             }
             else

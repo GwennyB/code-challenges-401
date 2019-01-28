@@ -23,3 +23,12 @@ Create a BinarySearchTree class (derived from BinaryTree) with the following:
 
 ## Approach & Efficiency
 BinaryTree traversals use recursion, so time efficiency is O(n) and space is O(H) (height of tree). BinarySearchTree operations require less because they are ordered and predictable - time complexity is O(log n), and space is O(1).
+
+## Unit Tests
+Unit tests (and console cases) verify that:
+ - InOrder, PreOrder, and PostOrder each return an array of values in the expected order 
+ - Add inserts a new node of specified value into the correct location
+ - Contains returns true when the specified value is present and false when not present
+
+![console cases](assets/program-run.PNG)
+![unit tests](assets/unit-tests.PNG)
