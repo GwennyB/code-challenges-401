@@ -28,10 +28,6 @@ namespace tree.Classes
             {
                 if (value == current.Value)
                 {
-                    newNode.Left = current.Left;
-                    newNode.Right = current.Right;
-                    current.Left = newNode;
-                    current.Right = newNode;
                     return;
                 }
                 else if (value < current.Value)
@@ -43,7 +39,7 @@ namespace tree.Classes
                     current = current.Right;
                 }
             }
-            newNode = current;
+            current.Value = value;
         }
         
         /// <summary>
@@ -71,5 +67,6 @@ namespace tree.Classes
             }
             return false;
         }
+
     }
 }

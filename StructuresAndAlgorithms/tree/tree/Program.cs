@@ -56,6 +56,14 @@ namespace tree
         {
             BinarySearchTree tree = new BinarySearchTree();
             tree = BuildBSTree(tree);
+            Console.Write("PreOrder (original): ");
+            PrintTreeValues(tree.PreOrder());
+            int value = 15;
+            Console.WriteLine($"15 present? {tree.Contains(value)}");
+            tree.Add(value);
+            Console.Write($"PreOrder (added {value}): ");
+            PrintTreeValues(tree.PreOrder());
+            Console.WriteLine($"{value} present? {tree.Contains(value)}");
         }
 
         public static void PrintTreeValues(int[] tree)
