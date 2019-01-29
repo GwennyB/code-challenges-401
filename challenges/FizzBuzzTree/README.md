@@ -13,6 +13,8 @@ Recursive solution:
     - if: divisible by 15 (product of 3 and 5), change to 'FizzBuzz' (capture this before trying 3 and 5 individually for efficiency)
     - else if: divisible by 3, change to 'Fizz'
     - else if: divisible by 5, change to 'Buzz'
+Solution approach:
+![whiteboard solution](assets/whiteboard.PNG)
 
 ## Efficiency
 Since this solution is recursive, time efficiency is O(n) and space is O(H) (height of tree, allocated on the stack).
