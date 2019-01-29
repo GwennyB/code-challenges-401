@@ -4,7 +4,7 @@ using FizzBuzzTree.Classes;
 
 namespace FizzBuzzTree
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace FizzBuzzTree
         /// changes value to 'FizzBuzz', 'Fizz', or 'Buzz' (respectively) if yes
         /// </summary>
         /// <param name="node"> node to check </param>
-        static void FizzBuzzTree(Node node)
+        public static void FizzBuzzTree(Node node)
         {
             if (node.Left != null)
             {
@@ -62,7 +62,7 @@ namespace FizzBuzzTree
         /// </summary>
         /// <param name="tree"> empty tree to build up </param>
         /// <returns> populated tree </returns>
-        static BinaryTree BuildBinTree(BinaryTree tree)
+        public static BinaryTree BuildBinTree(BinaryTree tree)
         {
             tree.Root = new Node(5);
             tree.Root.Left = new Node(10);
