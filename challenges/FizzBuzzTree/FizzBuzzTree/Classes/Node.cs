@@ -10,6 +10,10 @@ namespace FizzBuzzTree.Classes
         public Node Left { get; set; }
         public Node Right { get; set; }
 
+        /// <summary>
+        /// constructs node of specified value
+        /// </summary>
+        /// <param name="value"> value to assign to new node </param>
         public Node(int value)
         {
             Value = value;
