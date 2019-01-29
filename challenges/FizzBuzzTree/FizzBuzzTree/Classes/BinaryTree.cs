@@ -6,11 +6,18 @@ namespace FizzBuzzTree.Classes
 {
     public class BinaryTree : Tree
     {
+        /// <summary>
+        /// constructs empty BinaryTree
+        /// </summary>
         public BinaryTree()
         {
             Root = null;
         }
 
+        /// <summary>
+        /// constructs BinaryTree with just a root
+        /// </summary>
+        /// <param name="node"> node to become root of new tree </param>
         public BinaryTree(Node node)
         {
             Root = node;

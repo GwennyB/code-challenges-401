@@ -15,6 +15,11 @@ namespace FizzBuzzTree
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// RECURSIVE: Checks each node for divisibility by 15, 3, or 5, and
+        /// changes value to 'FizzBuzz', 'Fizz', or 'Buzz' (respectively) if yes
+        /// </summary>
+        /// <param name="node"> node to check </param>
         static void FizzBuzzTree(Node node)
         {
 
@@ -44,6 +49,11 @@ namespace FizzBuzzTree
             }
         }
 
+        /// <summary>
+        /// build up tree to test
+        /// </summary>
+        /// <param name="tree"> empty tree to build up </param>
+        /// <returns> populated tree </returns>
         static BinaryTree BuildBinTree(BinaryTree tree)
         {
             tree.Root = new Node(5);
@@ -59,7 +69,7 @@ namespace FizzBuzzTree
         /// <summary>
         /// prints node values returned by Pre/In/PostOrder method
         /// </summary>
-        /// <param name="tree"></param>
+        /// <param name="tree"> tree values in an array </param>
         public static void PrintTreeValues(Object[] tree)
         {
             foreach (Object value in tree)
