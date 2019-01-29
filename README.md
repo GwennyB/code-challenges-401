@@ -30,6 +30,9 @@ Each challenge has its own directory (with descriptive name). Each directory con
   FIFOAnimalShelter - 
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/FIFOAnimalShelter
   
+  FizzBuzzTree - 
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/FizzBuzzTree
+    
   MultiBracketValidation - 
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/MultiBracketValidation
   
