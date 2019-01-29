@@ -22,7 +22,6 @@ namespace FizzBuzzTree
         /// <param name="node"> node to check </param>
         static void FizzBuzzTree(Node node)
         {
-
             if (node.Left != null)
             {
                 FizzBuzzTree(node.Left);
@@ -31,15 +30,24 @@ namespace FizzBuzzTree
             {
                 FizzBuzzTree(node.Right);
             };
-            if(Convert.ToInt32(node.Value) % 15 == 0)
+            int nodeValue = 0;
+            try
+            {
+                nodeValue = Convert.ToInt32(node.Value);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            if(nodeValue % 15 == 0)
             {
                 node.Value = "FizzBuzz";
             }
-            else if (Convert.ToInt32(node.Value) % 3 == 0)
+            else if (nodeValue % 3 == 0)
             {
                 node.Value = "Fizz";
             }
-            else if (Convert.ToInt32(node.Value) % 5 == 0)
+            else if (nodeValue % 5 == 0)
             {
                 node.Value = "Buzz";
             }
@@ -60,7 +68,7 @@ namespace FizzBuzzTree
             tree.Root.Left = new Node(10);
             tree.Root.Right = new Node(15);
             tree.Root.Left.Left = new Node(20);
-            tree.Root.Left.Right = new Node(25);
+            tree.Root.Left.Right = new Node("test");
             tree.Root.Right.Left = new Node(30);
             tree.Root.Right.Right = new Node(33);
             return tree;

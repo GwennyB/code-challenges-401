@@ -14,7 +14,7 @@ namespace FizzBuzzTree.Classes
         /// constructs node of specified value
         /// </summary>
         /// <param name="value"> value to assign to new node </param>
-        public Node(int value)
+        public Node(Object value)
         {
             Value = value;
             Left = null;
