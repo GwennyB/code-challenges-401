@@ -47,3 +47,6 @@ Each challenge has its own directory (with descriptive name). Each directory con
   
   merge-lists - 
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/merge-lists
+    
+  breadth-first-traversal - 
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/breadth-first-traversal
