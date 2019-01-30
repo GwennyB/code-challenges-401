@@ -34,3 +34,8 @@ Unit tests (and console cases) verify that:
  - different data types don't generate an error or exception
 
 ![unit tests](assets/unit-tests.PNG)
+
+## Credit
+Whiteboarding was a collaborative effort by:
+ Shalom Belaineh - https://github.com/shalina2
+ Gwen Zubatch - https://github.com/GwennyB
