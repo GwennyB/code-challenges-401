@@ -1,5 +1,5 @@
 # data-structures-and-algorithms
-CF 401 .NET - Code Challenge 11 - PsuedoQueue
+CF 401 .NET - Code Challenge 12 - FIFO Animal Shelter
 
 ## Challenge
 Create a class called AnimalShelter which holds only dogs and cats and places animals using FIFO. Receive animals (dogs and cats) into the shelter using 'Enqueue()' method, and place animals with new owners according to their type preference (dog or cat) using 'Dequeue' method.
@@ -35,4 +35,4 @@ AnimalShelter.Enqueue requires only access to the Rear of the Primary queue, whi
 ## Solution
 This challenge included a set of unit tests verifying that:
   - TBD
-![unit tests](assets/?????.PNG)
+<!-- ![unit tests](assets/?????.PNG) -->
