@@ -34,3 +34,8 @@ Unit tests (and console cases) verify that correct results are returned from:
  - a tree with a right-leaning imbalance
 
 ![unit tests](assets/unit-tests.PNG)
+
+## Credit
+Whiteboarding was a collaborative effort by:
+ Shalom Belaineh - https://github.com/shalina2
+ Gwen Zubatch - https://github.com/GwennyB
