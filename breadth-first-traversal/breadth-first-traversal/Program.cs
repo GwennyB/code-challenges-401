@@ -4,7 +4,7 @@ using breadth_first_traversal.Classes;
 
 namespace breadth_first_traversal
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -16,10 +16,11 @@ namespace breadth_first_traversal
         /// traverses a binary tree breadth-first and prints each node's value to console
         /// </summary>
         /// <param name="tree"> tree to traverse </param>
-        public static void BreadthFirst(BinaryTree tree)
+        public static int[] BreadthFirst(BinaryTree tree)
         {
             Queue queue = new Queue();
             queue.Enqueue(tree.Root);
+            List<int> values = new List<int>();
             while(queue.Front != null)
             {
                 if (queue.Front.Left != null)
@@ -30,15 +31,17 @@ namespace breadth_first_traversal
                 {
                     queue.Enqueue(queue.Front.Right);
                 }
+                values.Add(queue.Front.Value);
                 Console.WriteLine($"{queue.Dequeue()}");
             }
+            return values.ToArray();
         }
 
         /// <summary>
         /// TEST HELPER: builds a binary tree for testing
         /// </summary>
         /// <returns> a test tree </returns>
-        private static BinaryTree BuildBinTree()
+        public static BinaryTree BuildBinTree()
         {
             BinaryTree tree = new BinaryTree();
             tree.Root = new Node(1);
