@@ -29,11 +29,31 @@ namespace breadth_first_traversal.Classes
         }
 
         /// <summary>
-        /// attaches a new node of specified value to the back of a queue, and assigns it as Rear
+        /// attaches a specified node to the back of a queue, and assigns it as Rear
         /// </summary>
         /// <param name="value"> ref to the node to add to rear of queue </param> 
         public Node Enqueue(Node node)
         {
+            if (Front == null)
+            {
+                Front = node;
+                Rear = node;
+            }
+            else
+            {
+                Rear.Next = node;
+                Rear = node;
+            }
+            return node;
+        }
+
+        /// <summary>
+        /// attaches a new node of specified value to the back of a queue, and assigns it as Rear
+        /// </summary>
+        /// <param name="value"> ref to the node to add to rear of queue </param> 
+        public Node Enqueue(int value)
+        {
+            Node node = new Node(value);
             if(Front == null)
             {
                 Front = node;

@@ -12,6 +12,10 @@ namespace breadth_first_traversal
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// traverses a binary tree breadth-first and prints each node's value to console
+        /// </summary>
+        /// <param name="tree"> tree to traverse </param>
         public static void BreadthFirst(BinaryTree tree)
         {
             Queue queue = new Queue();
@@ -30,7 +34,10 @@ namespace breadth_first_traversal
             }
         }
 
-
+        /// <summary>
+        /// TEST HELPER: builds a binary tree for testing
+        /// </summary>
+        /// <returns> a test tree </returns>
         private static BinaryTree BuildBinTree()
         {
             BinaryTree tree = new BinaryTree();

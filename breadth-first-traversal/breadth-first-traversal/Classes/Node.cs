@@ -11,6 +11,10 @@ namespace breadth_first_traversal.Classes
         public Node Right { get; set; }
         public Node Next { get; set; }
 
+        /// <summary>
+        /// constructs a node that can act as both Queue and Tree node
+        /// </summary>
+        /// <param name="value"></param>
         public Node(int value)
         {
             Value = value;
