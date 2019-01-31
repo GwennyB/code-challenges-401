@@ -31,6 +31,12 @@ Recursive check -
   - update accumulator with node's value if it's greater
   - return accumulator
 
+Console run - when a max exists:
+![console cases](assets/run-max-exists.PNG)
+
+Console run - when tree is empty:
+![console cases](assets/run-empty.PNG)
+
 
 ## Efficiency
 Recursive time efficiency is O(n) (each node is checked) and space is O(H) (height of tree determines max height of call stack).
@@ -41,6 +47,4 @@ Unit tests (and console cases) verify that:
  - calls with negative, positive, or all equal trees return correct max
  - max value in root, leaf, and internal nodes return correct max
 
-![console cases](assets/run-max-exists.PNG)
-![console cases](assets/run-empty.PNG)
 ![unit tests](assets/unit-tests.PNG)
