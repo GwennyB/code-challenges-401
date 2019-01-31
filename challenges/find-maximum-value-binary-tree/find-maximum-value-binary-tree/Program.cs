@@ -7,10 +7,10 @@ namespace FindMax
     {
         static void Main(string[] args)
         {
-            int[] treeValues = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            int[] treeValues = new int[] { 1, 20, 3, 4, 5, 6, 7 };
             BinaryTree tree = BuildBinTree(treeValues);
-            int max = FindMaxValue(tree.Root);
-            Console.WriteLine($"max value: {max}");
+            int[] max = FindMaxValue(tree.Root);
+            Console.WriteLine($"max value: {max[0]}");
             Console.ReadLine();
 
         }
@@ -33,14 +33,31 @@ namespace FindMax
             return tree;
         }
 
-        public static int FindMaxValue(Node node)
+        public static int[] FindMaxValue(Node node)
         {
-            int max = node.Value;
-            max = FindMaxValue(node, max);
-
+            if(node != null)
+            {
+                int[] max = new int[] { node.Value };
+                return FindMaxValue(node, max);
+            }
+            return new int[] { };
         }
-
-        private static int FindMaxValue(Node node, int max)
+        private static int[] FindMaxValue(Node node, int[] max)
+        {
+            if(node.Left != null)
+            {
+                max = FindMaxValue(node.Left, max);
+            }
+            if (node.Right != null)
+            {
+                max = FindMaxValue(node.Right, max);
+            }
+            if(node.Value > max[0])
+            {
+                max[0] = node.Value;
+            }
+            return max;
+        }
 
 
         /// <summary>
