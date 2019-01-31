@@ -3,13 +3,18 @@ using FindMax.Classes;
 
 namespace FindMax
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            // enter test tree values in array assignment, in breadth-first order:
             int[] treeValues = new int[] { /*1, 20, 3, 4, 5, 6, 7*/ };
             BinaryTree tree = BuildBinTree(treeValues);
+
+            // initiate search
             Object max = FindMaxValue(tree.Root);
+
+            // console print results
             if (max == null)
             {
                 Console.WriteLine("This tree is empty.");
@@ -23,7 +28,7 @@ namespace FindMax
         }
 
         /// <summary>
-        /// populates BinaryTree for testing
+        /// CONSOLE TEST TOOL: populates BinaryTree for testing
         /// </summary>
         /// <param name="values"> values to assign to tree </param>
         /// <returns> populated tree </returns>
@@ -57,6 +62,13 @@ namespace FindMax
             }
             return null;
         }
+
+        /// <summary>
+        /// performs recursive evaluation of node values
+        /// </summary>
+        /// <param name="node"> node to check against max </param>
+        /// <param name="max"> current max value </param>
+        /// <returns> new max value </returns>
         private static int FindMaxValue(Node node, int max)
         {
             if(node.Left != null)
@@ -75,18 +87,18 @@ namespace FindMax
         }
 
 
-        /// <summary>
-        /// prints node values returned by Pre/In/PostOrder method
-        /// </summary>
-        /// <param name="tree"></param>
-        public static void PrintTreeValues(int[] tree)
-        {
-            foreach (int value in tree)
-            {
-                Console.Write($"{value}=> ");
-            }
-            Console.WriteLine();
-        }
+        ///// <summary>
+        ///// prints node values returned by Pre/In/PostOrder method
+        ///// </summary>
+        ///// <param name="tree"></param>
+        //public static void PrintTreeValues(int[] tree)
+        //{
+        //    foreach (int value in tree)
+        //    {
+        //        Console.Write($"{value}=> ");
+        //    }
+        //    Console.WriteLine();
+        //}
 
         ///// <summary>
         ///// populates BinarySearchTree for testing
