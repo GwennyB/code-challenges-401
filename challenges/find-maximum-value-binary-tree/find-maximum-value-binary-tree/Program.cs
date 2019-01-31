@@ -7,10 +7,17 @@ namespace FindMax
     {
         static void Main(string[] args)
         {
-            int[] treeValues = new int[] { 1, 20, 3, 4, 5, 6, 7 };
+            int[] treeValues = new int[] { /*1, 20, 3, 4, 5, 6, 7*/ };
             BinaryTree tree = BuildBinTree(treeValues);
-            int[] max = FindMaxValue(tree.Root);
-            Console.WriteLine($"max value: {max[0]}");
+            Object max = FindMaxValue(tree.Root);
+            if (max == null)
+            {
+                Console.WriteLine("This tree is empty.");
+            }
+            else
+            {
+                Console.WriteLine($"max value: {max}");
+            }
             Console.ReadLine();
 
         }
@@ -18,31 +25,39 @@ namespace FindMax
         /// <summary>
         /// populates BinaryTree for testing
         /// </summary>
-        /// <param name="tree"> tree to populate</param>
+        /// <param name="values"> values to assign to tree </param>
         /// <returns> populated tree </returns>
         public static BinaryTree BuildBinTree(int[] values)
         {
             BinaryTree tree = new BinaryTree();
-            tree.Root = new Node(values[0]);
-            tree.Root.Left = new Node(values[1]);
-            tree.Root.Right = new Node(values[2]);
-            tree.Root.Left.Left = new Node(values[3]);
-            tree.Root.Left.Right = new Node(values[4]);
-            tree.Root.Right.Left = new Node(values[5]);
-            tree.Root.Right.Right = new Node(values[6]);
+            if(values.Length > 0)
+            {
+                tree.Root = new Node(values[0]);
+                tree.Root.Left = new Node(values[1]);
+                tree.Root.Right = new Node(values[2]);
+                tree.Root.Left.Left = new Node(values[3]);
+                tree.Root.Left.Right = new Node(values[4]);
+                tree.Root.Right.Left = new Node(values[5]);
+                tree.Root.Right.Right = new Node(values[6]);
+            }
             return tree;
         }
 
-        public static int[] FindMaxValue(Node node)
+        /// <summary>
+        /// creates accumulator and initiates recursive search for max value
+        /// </summary>
+        /// <param name="node"> root of tree to search </param>
+        /// <returns> array with max value in first element </returns>
+        public static Object FindMaxValue(Node node)
         {
             if(node != null)
             {
-                int[] max = new int[] { node.Value };
+                int max = node.Value;
                 return FindMaxValue(node, max);
             }
-            return new int[] { };
+            return null;
         }
-        private static int[] FindMaxValue(Node node, int[] max)
+        private static int FindMaxValue(Node node, int max)
         {
             if(node.Left != null)
             {
@@ -52,9 +67,9 @@ namespace FindMax
             {
                 max = FindMaxValue(node.Right, max);
             }
-            if(node.Value > max[0])
+            if(node.Value > max)
             {
-                max[0] = node.Value;
+                max = node.Value;
             }
             return max;
         }
