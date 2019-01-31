@@ -50,3 +50,6 @@ Each challenge has its own directory (with descriptive name). Each directory con
     
   breadth-first-traversal - 
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/breadth-first-traversal
+    
+  find-max-value-binary-tree -
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/find-maximum-value-binary-tree
