@@ -1,34 +1,46 @@
 # data-structures-and-algorithms
-CF 401 .NET - Lab 10 - Stacks and Queues
+CF 401 .NET - Challenge 18 - Find Max in Binary Tree
 
-# Create new classes for Trees
-'Classes' contains classes for Tree, BinaryTree, BinarySearchTree, and Node. Classes contain methods to facilitate traversal, adding, and locating nodes.
+# Class Structure
+'Classes' contains custom classes for Tree, BinaryTree, and Node. Classes contain basic properties and constructors only - all relevant methods are in Program class.
 
 ## Challenge
-Create a Node class with the following properties and methods:
- - Value: integer value contained in the node (required)
- - Left: Node object that references the left child
- - Right: Node object that references the right child
- - Node (constructor): requires int input to assign initial value of node object
-Create a Tree class with the following properties and methods:
- - Root: reference to tree's root node, or null if empty
- - constructor (empty)
-Create a BinaryTree class (derived from Tree) with the following:
- - PreOrder: returns array of tree's values in PreOrder ordering (ie - left, right, root)
- - InOrder: returns array of tree's values in InOrder ordering (ie - left, root, right)
- - PostOrder: returns array of tree's values in PostOrder ordering (ie - root, left, right)
-Create a BinarySearchTree class (derived from BinaryTree) with the following:
- - Add: adds a new node of specified value into the correctly sorted location in the tree
- - Contains: finds a value in a tree if it exists (returns true if present and false if not present)
+Create a method that accepts any binary tree and returns its max value.
 
-## Approach & Efficiency
-BinaryTree traversals use recursion, so time efficiency is O(n) and space is O(H) (height of tree). BinarySearchTree operations require less because they are ordered and predictable - time complexity is O(log n), and space is O(1).
+## Installation & Run
+1. Clone this repo.
+2. Launch \\challenges\find-maximum-value-binary-tree\find-maximum-value-binary-tree\FindMax.csproj 
+    (use Visual Studio 2017 or later) 
+3. Compile and run - console will launch automatically.
+
+## Considerations
+Binary trees will contain just integer values. However, the tree may be empty, filled with positive and/or negative values, and it may contain duplicates. The return value must accommodate 'null'. All nodes must be checked since binary trees aren't sorted.
+
+## Approach
+Because this solution requires a payload (the 'max' value will need to follow the recursion), an indirect recursive call is used (ie - a primary method that can be called by Main and a private 'helper', which is an overload of the primary). 
+
+PRIMARY METHOD:
+1. If the tree is empty (ie - root is null), return null and report results.
+2. If the tree has at least a non-null root, assign its value to a new accumulator, and send both the root and the accumulator to helper for comparison with all nodes - final return is the accumulator.
+3. Return accumulator as object. 
+
+HELPER METHOD:
+Recursive check - 
+  - if left, then left
+  - if right, then right
+  - update accumulator with node's value if it's greater
+  - return accumulator
+
+
+## Efficiency
+Recursive time efficiency is O(n) (each node is checked) and space is O(H) (height of tree determines max height of call stack).
 
 ## Unit Tests
 Unit tests (and console cases) verify that:
- - InOrder, PreOrder, and PostOrder each return an array of values in the expected order 
- - Add inserts a new node of specified value into the correct location
- - Contains returns true when the specified value is present and false when not present
+ - calls with empty trees return null
+ - calls with negative, positive, or all equal trees return correct max
+ - max value in root, leaf, and internal nodes return correct max
 
-![console cases](assets/program-run.PNG)
+![console cases](assets/run-max-exists.PNG)
+![console cases](assets/run-empty.PNG)
 ![unit tests](assets/unit-tests.PNG)

@@ -8,7 +8,7 @@ namespace FindMax
         static void Main(string[] args)
         {
             // enter test tree values in array assignment, in breadth-first order:
-            int[] treeValues = new int[] { /*1, 20, 3, 4, 5, 6, 7*/ };
+            int[] treeValues = new int[] { 1, 20, 3, 4, 5, 6, 7 };
             BinaryTree tree = BuildBinTree(treeValues);
 
             // initiate search
