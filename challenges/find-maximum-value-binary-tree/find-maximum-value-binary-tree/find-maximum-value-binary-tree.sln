@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMax", "FindMax.csproj", "{D4720B4A-886D-48E7-A6E8-955B1C4CA717}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6EC9F1BA-AB33-4A79-A7C7-DEEFD01C2E1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{3ABA56D2-D7BD-4D72-ACB2-FFDC8CCBEFFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4720B4A-886D-48E7-A6E8-955B1C4CA717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4720B4A-886D-48E7-A6E8-955B1C4CA717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4720B4A-886D-48E7-A6E8-955B1C4CA717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4720B4A-886D-48E7-A6E8-955B1C4CA717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ABA56D2-D7BD-4D72-ACB2-FFDC8CCBEFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ABA56D2-D7BD-4D72-ACB2-FFDC8CCBEFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ABA56D2-D7BD-4D72-ACB2-FFDC8CCBEFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ABA56D2-D7BD-4D72-ACB2-FFDC8CCBEFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FFC099B-0B60-4FB9-AC1B-0922AD7C3B76}
+	EndGlobalSection
+EndGlobal
