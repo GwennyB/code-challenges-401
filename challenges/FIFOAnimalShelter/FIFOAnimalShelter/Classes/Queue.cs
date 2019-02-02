@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FIFOAnimalShelter.Classes
 {
-    class Queue
+    public class Queue
     {
         public Animal Front { get; set; }
         public Animal Rear { get; set; }

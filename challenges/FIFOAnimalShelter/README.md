@@ -34,5 +34,10 @@ AnimalShelter.Enqueue requires only access to the Rear of the Primary queue, whi
 
 ## Solution
 This challenge included a set of unit tests verifying that:
-  - TBD
-<!-- ![unit tests](assets/?????.PNG) -->
+  - The AnimalShelter constructor builds the correct object including 2 new queues
+  - AnimalShelter.Dequeue() returns the first of type when it is or is not at the front of the line
+  - AnimalShelter.Dequeue() returns null when an invalid animal type is requested
+  - AnimalShelter.Dequeue() returns primary queue to original order after finding and removing an animal from mid-queue
+  - AnimalShelter.Enqueue() adds dogs and cats to the queue
+  - AnimalShelter.Enqueue() maintains queue order
+![unit tests](assets/unit-tests.PNG)
