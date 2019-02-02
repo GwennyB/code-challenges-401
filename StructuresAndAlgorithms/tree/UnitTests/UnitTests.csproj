@@ -13,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="tree">
-      <HintPath>..\tree\bin\Debug\netcoreapp2.2\tree.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\tree\tree.csproj" />
   </ItemGroup>
 
 </Project>

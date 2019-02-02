@@ -67,10 +67,10 @@ namespace UnitTests
         }
 
         /// <summary>
-        /// verifies that Contains returns 'true' when value present in tree
+        /// verifies that Contains returns 'true' when value is present on leaf node
         /// </summary>
         [Fact]
-        public void Contains_ReturnsTrue()
+        public void Contains_ReturnsTrueOnInternalNode()
         {
             BinarySearchTree tree = new BinarySearchTree();
             tree.Root = new Node(40);
@@ -81,7 +81,25 @@ namespace UnitTests
             tree.Root.Right.Left = new Node(50);
             tree.Root.Right.Right = new Node(70);
 
-            Assert.True(tree.Contains(60));
+            Assert.True(tree.Contains(50));
+        }
+
+        /// <summary>
+        /// verifies that Contains returns 'true' when value is present on root node
+        /// </summary>
+        [Fact]
+        public void Contains_ReturnsTrueOnRootNode()
+        {
+            BinarySearchTree tree = new BinarySearchTree();
+            tree.Root = new Node(40);
+            tree.Root.Left = new Node(20);
+            tree.Root.Right = new Node(60);
+            tree.Root.Left.Left = new Node(10);
+            tree.Root.Left.Right = new Node(30);
+            tree.Root.Right.Left = new Node(50);
+            tree.Root.Right.Right = new Node(70);
+
+            Assert.True(tree.Contains(40));
         }
 
         /// <summary>
@@ -103,10 +121,10 @@ namespace UnitTests
         }
 
         /// <summary>
-        /// verifies that Add inserts a node of specified value in proper location
+        /// verifies that Add inserts a new node smaller than all others
         /// </summary>
         [Fact]
-        public void Add_AddsNodeInProperLocation()
+        public void Add_AddsNewSmallestNode()
         {
             BinarySearchTree tree = new BinarySearchTree();
             tree.Root = new Node(40);
@@ -117,12 +135,55 @@ namespace UnitTests
             tree.Root.Right.Left = new Node(50);
             tree.Root.Right.Right = new Node(70);
 
-            tree.Add(63);
+            tree.Add(5);
 
-            int[] values = new int[] { 10, 20, 30, 40, 50, 60, 63, 70 };
+            int[] values = new int[] { 5, 10, 20, 30, 40, 50, 60, 70 };
 
             Assert.Equal(values, tree.InOrder());
+        }
 
+        /// <summary>
+        /// verifies that Add inserts a new node larger than all others
+        /// </summary>
+        [Fact]
+        public void Add_AddsNewLargestNode()
+        {
+            BinarySearchTree tree = new BinarySearchTree();
+            tree.Root = new Node(40);
+            tree.Root.Left = new Node(20);
+            tree.Root.Right = new Node(60);
+            tree.Root.Left.Left = new Node(10);
+            tree.Root.Left.Right = new Node(30);
+            tree.Root.Right.Left = new Node(50);
+            tree.Root.Right.Right = new Node(70);
+
+            tree.Add(75);
+
+            int[] values = new int[] { 10, 20, 30, 40, 50, 60, 70,75 };
+
+            Assert.Equal(values, tree.InOrder());
+        }
+
+        /// <summary>
+        /// verifies that Add does not add duplicate node
+        /// </summary>
+        [Fact]
+        public void Add_RejectsDuplicate()
+        {
+            BinarySearchTree tree = new BinarySearchTree();
+            tree.Root = new Node(40);
+            tree.Root.Left = new Node(20);
+            tree.Root.Right = new Node(60);
+            tree.Root.Left.Left = new Node(10);
+            tree.Root.Left.Right = new Node(30);
+            tree.Root.Right.Left = new Node(50);
+            tree.Root.Right.Right = new Node(70);
+
+            tree.Add(20);
+
+            int[] values = new int[] { 10, 20, 30, 40, 50, 60, 70 };
+
+            Assert.Equal(values, tree.InOrder());
         }
     }
 }
