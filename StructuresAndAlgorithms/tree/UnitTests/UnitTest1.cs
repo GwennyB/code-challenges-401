@@ -27,7 +27,40 @@ namespace UnitTests
         }
 
         /// <summary>
-        /// verifies that PreOrder returns an array in the expected order
+        /// verifies that InOrder returns null list when tree empty
+        /// </summary>
+        [Fact]
+        public void InOrder_ReturnsEmptyListWhenEmpty()
+        {
+            BinaryTree tree = new BinaryTree();
+
+            int[] values = new int[] {  };
+
+            Assert.Equal(values, tree.InOrder());
+        }
+
+        /// <summary>
+        /// verifies that InOrder returns empty list when tree empty
+        /// </summary>
+        [Fact]
+        public void InOrder_ReturnsProperOrderWhenImbalanced()
+        {
+            BinaryTree tree = new BinaryTree();
+            tree.Root = new Node(1);
+            tree.Root.Left = new Node(2);
+            tree.Root.Right = new Node(3);
+            //tree.Root.Left.Left = new Node(4);
+            tree.Root.Left.Right = new Node(5);
+            //tree.Root.Right.Left = new Node(6);
+            tree.Root.Right.Right = new Node(7);
+
+            int[] values = new int[] { 2, 5, 1, 3, 7 };
+
+            Assert.Equal(values, tree.InOrder());
+        }
+
+        /// <summary>
+        /// verifies that PreOrder returns an array in the expected order when tree is imbalanced
         /// </summary>
         [Fact]
         public void PreOrder_ReturnsProperOrder()
@@ -42,6 +75,39 @@ namespace UnitTests
             tree.Root.Right.Right = new Node(7);
 
             int[] values = new int[] { 1, 2, 4, 5, 3, 6, 7 };
+
+            Assert.Equal(values, tree.PreOrder());
+        }
+
+        /// <summary>
+        /// verifies that PreOrder returns empty list when tree empty
+        /// </summary>
+        [Fact]
+        public void PreOrder_ReturnsEmptyListWhenEmpty()
+        {
+            BinaryTree tree = new BinaryTree();
+
+            int[] values = new int[] {  };
+
+            Assert.Equal(values, tree.PreOrder());
+        }
+
+        /// <summary>
+        /// verifies that PreOrder returns an array in the expected order when tree is imbalanced
+        /// </summary>
+        [Fact]
+        public void PreOrder_ReturnsProperOrderWhenImbalanced()
+        {
+            BinaryTree tree = new BinaryTree();
+            tree.Root = new Node(1);
+            tree.Root.Left = new Node(2);
+            tree.Root.Right = new Node(3);
+            //tree.Root.Left.Left = new Node(4);
+            tree.Root.Left.Right = new Node(5);
+            //tree.Root.Right.Left = new Node(6);
+            tree.Root.Right.Right = new Node(7);
+
+            int[] values = new int[] { 1, 2, 5, 3, 7 };
 
             Assert.Equal(values, tree.PreOrder());
         }
@@ -62,6 +128,39 @@ namespace UnitTests
             tree.Root.Right.Right = new Node(7);
 
             int[] values = new int[] { 4, 5, 2, 6, 7, 3, 1 };
+
+            Assert.Equal(values, tree.PostOrder());
+        }
+
+        /// <summary>
+        /// verifies that PostOrder returns empty list when tree empty
+        /// </summary>
+        [Fact]
+        public void PostOrder_ReturnsEmptyListWhenEmpty()
+        {
+            BinaryTree tree = new BinaryTree();
+
+            int[] values = new int[] {  };
+
+            Assert.Equal(values, tree.PostOrder());
+        }
+
+        /// <summary>
+        /// verifies that PostOrder returns an array in the expected order when tree is imbalanced
+        /// </summary>
+        [Fact]
+        public void PostOrder_ReturnsProperOrderWhenImbalanced()
+        {
+            BinaryTree tree = new BinaryTree();
+            tree.Root = new Node(1);
+            tree.Root.Left = new Node(2);
+            tree.Root.Right = new Node(3);
+            //tree.Root.Left.Left = new Node(4);
+            tree.Root.Left.Right = new Node(5);
+            tree.Root.Right.Left = new Node(6);
+            //tree.Root.Right.Right = new Node(7);
+
+            int[] values = new int[] { 5, 2, 6, 3, 1 };
 
             Assert.Equal(values, tree.PostOrder());
         }
