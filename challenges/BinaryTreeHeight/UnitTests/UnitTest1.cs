@@ -7,6 +7,9 @@ namespace UnitTests
 {
     public class UnitTest1
     {
+        /// <summary>
+        /// verifies that height of a non-null, non-linear, imbalanced tree can be found
+        /// </summary>
         [Fact]
         public void CanFindHeightOfImbalancedTree()
         {
@@ -15,6 +18,9 @@ namespace UnitTests
             Assert.Equal(7, Program.CalculateBinaryTreeHeight(tree.Root));
         }
 
+        /// <summary>
+        /// verifes that a single node is counted as height=0
+        /// </summary>
         [Fact]
         public void CanReturnZeroHeightForSingleNode()
         {
@@ -23,6 +29,9 @@ namespace UnitTests
             Assert.Equal(0, Program.CalculateBinaryTreeHeight(node));
         }
 
+        /// <summary>
+        /// verifies that a single-path tree (ie - linked list) returns accurate height
+        /// </summary>
         [Fact]
         public void CanFindHeightOfLinkedList()
         {
@@ -34,10 +43,12 @@ namespace UnitTests
             tree.Root.Left.Left.Left.Left = new Node(1);
             tree.Root.Left.Left.Left.Left.Left = new Node(1);
 
-
             Assert.Equal(5, Program.CalculateBinaryTreeHeight(tree.Root));
         }
 
+        /// <summary>
+        /// verifies that # levels of a non-null, non-linear, imbalanced tree can be found
+        /// </summary>
         [Fact]
         public void CanFindLevelsOfImbalancedTree()
         {
@@ -46,6 +57,9 @@ namespace UnitTests
             Assert.Equal(8, Program.CalculateBinTreeLevels(tree.Root));
         }
 
+        /// <summary>
+        /// verifes that a single node is counted as single level
+        /// </summary>
         [Fact]
         public void CanReturnOneLevelForSingleNode()
         {
@@ -54,6 +68,9 @@ namespace UnitTests
             Assert.Equal(1, Program.CalculateBinTreeLevels(node));
         }
 
+        /// <summary>
+        /// verifies that a single-path tree (ie - linked list) returns height = # nodes
+        /// </summary>
         [Fact]
         public void CanFindLevelsOfLinkedList()
         {
@@ -64,7 +81,6 @@ namespace UnitTests
             tree.Root.Left.Left.Left = new Node(1);
             tree.Root.Left.Left.Left.Left = new Node(1);
             tree.Root.Left.Left.Left.Left.Left = new Node(1);
-
 
             Assert.Equal(6, Program.CalculateBinTreeLevels(tree.Root));
         }

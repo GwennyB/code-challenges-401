@@ -33,6 +33,10 @@ namespace BinaryTreeHeight
         /// <returns> number of levels in tree </returns>
         public static int CalculateBinTreeLevels(Node root)
         {
+            if(root == null)
+            {
+                return 0;
+            }
             // set a payload to carry edge count
             int height = 0;
 
@@ -52,6 +56,10 @@ namespace BinaryTreeHeight
         /// <returns> height of tree (# edges along longest path) </returns>
         public static int CalculateBinaryTreeHeight(Node root)
         {
+            if (root == null)
+            {
+                return 0;
+            }
 
             // set a payload to carry edge count
             int height = 0;
