@@ -16,7 +16,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void CanReturnZeroForSingleNode()
+        public void CanReturnZeroHeightForSingleNode()
         {
             Node node = new Node(1);
 
@@ -36,6 +36,37 @@ namespace UnitTests
 
 
             Assert.Equal(5, Program.CalculateBinaryTreeHeight(tree.Root));
+        }
+
+        [Fact]
+        public void CanFindLevelsOfImbalancedTree()
+        {
+            BinaryTree tree = Program.BuildBinTree();
+
+            Assert.Equal(8, Program.CalculateBinTreeLevels(tree.Root));
+        }
+
+        [Fact]
+        public void CanReturnOneLevelForSingleNode()
+        {
+            Node node = new Node(1);
+
+            Assert.Equal(1, Program.CalculateBinTreeLevels(node));
+        }
+
+        [Fact]
+        public void CanFindLevelsOfLinkedList()
+        {
+            BinaryTree tree = new BinaryTree();
+            tree.Root = new Node(1);
+            tree.Root.Left = new Node(1);
+            tree.Root.Left.Left = new Node(1);
+            tree.Root.Left.Left.Left = new Node(1);
+            tree.Root.Left.Left.Left.Left = new Node(1);
+            tree.Root.Left.Left.Left.Left.Left = new Node(1);
+
+
+            Assert.Equal(6, Program.CalculateBinTreeLevels(tree.Root));
         }
     }
 }

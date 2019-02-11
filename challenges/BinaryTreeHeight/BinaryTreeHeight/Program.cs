@@ -21,9 +21,29 @@ namespace BinaryTreeHeight
             BinaryTree tree = BuildBinTree();
             // check the tree
             Console.WriteLine($"tree has {CalculateBinaryTreeHeight(tree.Root)} edges");
+            Console.WriteLine($"tree has {CalculateBinTreeLevels(tree.Root)} levels");
+
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// calculates the number of levels of a binary tree by finding its height (# edges - or parent nodes - on longest path) and adding 1 for lowest leaf (which has no chidren
+        /// </summary>
+        /// <param name="root"> root of tree to check </param>
+        /// <returns> number of levels in tree </returns>
+        public static int CalculateBinTreeLevels(Node root)
+        {
+            // set a payload to carry edge count
+            int height = 0;
+
+            // initiate recursive search
+            height = FindEdges(root, height);
+
+            // add lowest leaf level:
+            height++;
+
+            return height;
+        }
 
         /// <summary>
         /// accepts a tree root and initiates a recursive search for edges
