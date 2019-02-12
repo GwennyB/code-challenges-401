@@ -7,7 +7,7 @@ namespace FindAncestry
     {
         static void Main(string[] args)
         {
-            bool ancestor = IsAncestor(BuildBinTree(), 1,6);
+            bool ancestor = IsAncestor(BuildBinTree(), 3,6);
             Console.WriteLine($"This should be TRUE: {ancestor}");
 
             ancestor = IsAncestor(BuildBinTree(), 5, 15);
@@ -25,6 +25,10 @@ namespace FindAncestry
         /// <returns></returns>
         public static bool IsAncestor(BinaryTree tree, int one, int two)
         {
+            if(tree.Root == null || (tree.Root.Left == null && tree.Root.Right == null))
+            {
+                return false;
+            }
             return FindA(tree.Root, one, two);
         }
 
@@ -59,11 +63,17 @@ namespace FindAncestry
             {
                 if (node.Left != null)
                 {
-                    FindA(node.Left, one, two);
+                    if (FindA(node.Left, one, two))
+                    {
+                        answer = true;
+                    }
                 }
                 if (node.Right != null)
                 {
-                    FindA(node.Right, one, two);
+                    if(FindA(node.Right, one, two))
+                    {
+                        answer = true;
+                    }
                 }
             }
             return answer;
@@ -116,17 +126,17 @@ namespace FindAncestry
             tree.Root.Left.Right = new Node(5);
             tree.Root.Right.Left = new Node(6);
             tree.Root.Right.Left.Left = new Node(7);
-            //tree.Root.Right.Left.Right = new Node(8);
-            //tree.Root.Right.Right = new Node(9);
-            //tree.Root.Right.Right.Left = new Node(10);
-            //tree.Root.Right.Right.Right = new Node(11);
-            //tree.Root.Right.Right.Right.Left = new Node(12);
-            //tree.Root.Right.Right.Right.Right = new Node(13);
-            //tree.Root.Right.Right.Right.Right.Left = new Node(14);
-            //tree.Root.Right.Right.Right.Right.Right = new Node(15);
-            //tree.Root.Right.Right.Right.Right.Right = new Node(16);
-            //tree.Root.Right.Right.Right.Right.Right.Left = new Node(17);
-            //tree.Root.Right.Right.Right.Right.Right.Left.Right = new Node(18);
+            tree.Root.Right.Left.Right = new Node(8);
+            tree.Root.Right.Right = new Node(9);
+            tree.Root.Right.Right.Left = new Node(10);
+            tree.Root.Right.Right.Right = new Node(11);
+            tree.Root.Right.Right.Right.Left = new Node(12);
+            tree.Root.Right.Right.Right.Right = new Node(13);
+            tree.Root.Right.Right.Right.Right.Left = new Node(14);
+            tree.Root.Right.Right.Right.Right.Right = new Node(15);
+            tree.Root.Right.Right.Right.Right.Right = new Node(16);
+            tree.Root.Right.Right.Right.Right.Right.Left = new Node(17);
+            tree.Root.Right.Right.Right.Right.Right.Left.Right = new Node(18);
             return tree;
         }
     }

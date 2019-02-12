@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAncestry", "FindAncestry\FindAncestry.csproj", "{7871F2CD-0520-4B26-BA28-EA317F356AC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{6CF1B61F-2AF0-41AD-BAF5-A2BAFD6D369C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7871F2CD-0520-4B26-BA28-EA317F356AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7871F2CD-0520-4B26-BA28-EA317F356AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7871F2CD-0520-4B26-BA28-EA317F356AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF1B61F-2AF0-41AD-BAF5-A2BAFD6D369C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF1B61F-2AF0-41AD-BAF5-A2BAFD6D369C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF1B61F-2AF0-41AD-BAF5-A2BAFD6D369C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF1B61F-2AF0-41AD-BAF5-A2BAFD6D369C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
