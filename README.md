@@ -27,29 +27,38 @@ Each challenge has its own directory (with descriptive name). Each directory con
 
 ## challenges - challenge problems using the above structures and algorithms
 
-  FIFOAnimalShelter - 
+  FIFOAnimalShelter -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/FIFOAnimalShelter
   
-  FizzBuzzTree - 
+  FizzBuzzTree -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/FizzBuzzTree
     
-  MultiBracketValidation - 
+  MultiBracketValidation -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/MultiBracketValidation
   
-  PseudoQueue - 
+  PseudoQueue -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/PseudoQueue
   
-  array_binary_search - 
+  array_binary_search -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/array_binary_search
   
-  array_shift - 
+  array_shift -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/array_shift
   
-  merge-lists - 
+  merge-lists -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/merge-lists
     
-  breadth-first-traversal - 
+  breadth-first-traversal -   
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/breadth-first-traversal
     
-  find-max-value-binary-tree -
+  find-max-value-binary-tree - 
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/find-maximum-value-binary-tree
+    
+  BinaryTreeHeight -  
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/BinaryTreeHeight
+    
+  DedupeLinkedList -  
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/DedupeLinkedList
+    
+  FindAncestry -  
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/FindAncestry
