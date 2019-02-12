@@ -48,14 +48,14 @@ namespace FindAncestry
                 {
                     if (FindB(node.Left, two, answer))
                     {
-                        answer = true;
+                        return true;
                     }
                 }
                 if (node.Right != null)
                 {
                     if (FindB(node.Right, two, answer))
                     {
-                        answer = true;
+                        return true;
                     }
                 }
             }
@@ -65,14 +65,14 @@ namespace FindAncestry
                 {
                     if (FindA(node.Left, one, two))
                     {
-                        answer = true;
+                        return true;
                     }
                 }
                 if (node.Right != null)
                 {
                     if(FindA(node.Right, one, two))
                     {
-                        answer = true;
+                        return true;
                     }
                 }
             }
@@ -89,7 +89,7 @@ namespace FindAncestry
         {
             if(answer == true || node.Value == two)
             {
-                answer = true;
+                return true;
             }
             else
             {
@@ -97,14 +97,14 @@ namespace FindAncestry
                 {
                     if (FindB(node.Left, two, answer))
                     {
-                        answer = true;
+                        return true;
                     }
                 }
                 if (node.Right != null)
                 {
                     if (FindB(node.Right, two, answer))
                     {
-                        answer = true;
+                        return true;
                     }
                 }
             }
