@@ -7,7 +7,7 @@ namespace FindAncestry
     {
         static void Main(string[] args)
         {
-            bool ancestor = IsAncestor(BuildBinTree(), 6, 1);
+            bool ancestor = IsAncestor(BuildBinTree(), 1,6);
             Console.WriteLine($"This should be TRUE: {ancestor}");
 
             ancestor = IsAncestor(BuildBinTree(), 5, 15);
@@ -37,20 +37,21 @@ namespace FindAncestry
         /// <returns></returns>
         public static bool FindA(Node node, int one, int two)
         {
+            bool answer = false;
             if (node.Value == one)
             {
                 if (node.Left != null)
                 {
-                    if (FindB(node.Left, two))
+                    if (FindB(node.Left, two, answer))
                     {
-                        return true;
+                        answer = true;
                     }
                 }
                 if (node.Right != null)
                 {
-                    if (FindB(node.Right, two))
+                    if (FindB(node.Right, two, answer))
                     {
-                        return true;
+                        answer = true;
                     }
                 }
             }
@@ -65,7 +66,7 @@ namespace FindAncestry
                     FindA(node.Right, one, two);
                 }
             }
-            return false;
+            return answer;
         }
 
         /// <summary>
@@ -74,24 +75,30 @@ namespace FindAncestry
         /// <param name="node"></param>
         /// <param name="two"></param>
         /// <returns></returns>
-        public static bool FindB(Node node, int two)
+        public static bool FindB(Node node, int two, bool answer)
         {
-            if (node.Value == two)
+            if(answer == true || node.Value == two)
             {
-                return true;
+                answer = true;
             }
             else
             {
                 if (node.Left != null)
                 {
-                    FindB(node.Left, two);
+                    if (FindB(node.Left, two, answer))
+                    {
+                        answer = true;
+                    }
                 }
                 if (node.Right != null)
                 {
-                    FindB(node.Right, two);
+                    if (FindB(node.Right, two, answer))
+                    {
+                        answer = true;
+                    }
                 }
             }
-            return false;
+            return answer;
         }
 
         /// <summary>
@@ -109,17 +116,17 @@ namespace FindAncestry
             tree.Root.Left.Right = new Node(5);
             tree.Root.Right.Left = new Node(6);
             tree.Root.Right.Left.Left = new Node(7);
-            tree.Root.Right.Left.Right = new Node(8);
-            tree.Root.Right.Right = new Node(9);
-            tree.Root.Right.Right.Left = new Node(10);
-            tree.Root.Right.Right.Right = new Node(11);
-            tree.Root.Right.Right.Right.Left = new Node(12);
-            tree.Root.Right.Right.Right.Right = new Node(13);
-            tree.Root.Right.Right.Right.Right.Left = new Node(14);
-            tree.Root.Right.Right.Right.Right.Right = new Node(15);
-            tree.Root.Right.Right.Right.Right.Right = new Node(16);
-            tree.Root.Right.Right.Right.Right.Right.Left = new Node(17);
-            tree.Root.Right.Right.Right.Right.Right.Left.Right = new Node(18);
+            //tree.Root.Right.Left.Right = new Node(8);
+            //tree.Root.Right.Right = new Node(9);
+            //tree.Root.Right.Right.Left = new Node(10);
+            //tree.Root.Right.Right.Right = new Node(11);
+            //tree.Root.Right.Right.Right.Left = new Node(12);
+            //tree.Root.Right.Right.Right.Right = new Node(13);
+            //tree.Root.Right.Right.Right.Right.Left = new Node(14);
+            //tree.Root.Right.Right.Right.Right.Right = new Node(15);
+            //tree.Root.Right.Right.Right.Right.Right = new Node(16);
+            //tree.Root.Right.Right.Right.Right.Right.Left = new Node(17);
+            //tree.Root.Right.Right.Right.Right.Right.Left.Right = new Node(18);
             return tree;
         }
     }
