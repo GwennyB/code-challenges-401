@@ -16,22 +16,42 @@ namespace FindAncestry
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// initiates recursive search for ancestor (one) and successor (two)
+        /// </summary>
+        /// <param name="tree"> tree to search </param>
+        /// <param name="one"> potential ancestor to locate </param>
+        /// <param name="two"> potential successor to locate </param>
+        /// <returns></returns>
         public static bool IsAncestor(BinaryTree tree, int one, int two)
         {
             return FindA(tree.Root, one, two);
         }
 
+        /// <summary>
+        /// locates a potential ancestor, and intiates recursive search under it for potential successor
+        /// </summary>
+        /// <param name="node"> root of (sub-)tree to search </param>
+        /// <param name="one"> potential ancestor to locate </param>
+        /// <param name="two"> potential successor to locate </param>
+        /// <returns></returns>
         public static bool FindA(Node node, int one, int two)
         {
             if (node.Value == one)
             {
                 if (node.Left != null)
                 {
-                    FindB(node.Left, two);
+                    if (FindB(node.Left, two))
+                    {
+                        return true;
+                    }
                 }
                 if (node.Right != null)
                 {
-                    FindB(node.Right, two);
+                    if (FindB(node.Right, two))
+                    {
+                        return true;
+                    }
                 }
             }
             else
@@ -48,6 +68,12 @@ namespace FindAncestry
             return false;
         }
 
+        /// <summary>
+        /// locates a potential successor; aborts and returns 'true' if found
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="two"></param>
+        /// <returns></returns>
         public static bool FindB(Node node, int two)
         {
             if (node.Value == two)
