@@ -87,14 +87,14 @@ namespace DedupeLinkedList
         /// </summary>
         /// <param name="vals"> values to place in list </param>
         /// <returns> linked list made of passed-in values </returns>
-        private static LinkedList BuildList(int[] vals)
+        public static LinkedList BuildList(int[] vals)
         {
             LinkedList list = new LinkedList();
             foreach (int val in vals)
             {
                 list.Append(val);
             }
-            list.Print();
+            //list.Print();
             return list;
         }
 
