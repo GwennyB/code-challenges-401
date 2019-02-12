@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DedupeLinkedList", "DedupeLinkedList\DedupeLinkedList.csproj", "{FE8C656A-61FA-4E3C-B882-94A8952B708B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE8C656A-61FA-4E3C-B882-94A8952B708B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE8C656A-61FA-4E3C-B882-94A8952B708B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE8C656A-61FA-4E3C-B882-94A8952B708B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE8C656A-61FA-4E3C-B882-94A8952B708B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9C64BB9-2E40-4FAE-96D4-987DBD583810}
+	EndGlobalSection
+EndGlobal
