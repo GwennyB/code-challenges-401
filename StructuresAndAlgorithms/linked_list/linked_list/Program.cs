@@ -20,6 +20,7 @@ namespace linked_list
             //list.InsertBefore(2, 888);
             //list.Print();
             list.PrintRec(list.Head);
+            Console.WriteLine($"includes 5? { list.Includes(5)}");
             //testList.Append(88);
 
             //LinkedList testList = new LinkedList();

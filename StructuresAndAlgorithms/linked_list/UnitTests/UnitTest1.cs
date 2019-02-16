@@ -64,7 +64,7 @@ namespace UnitTests
         [InlineData(-1)]
         [InlineData(-100)]
         [InlineData(1.111)]
-        public void Includes_ReturnsTrueForListWithSingleNode(int value)
+        public void Includes_ReturnsTrueForListWithSingleNode(Object value)
         {
             LinkedList testList = new LinkedList();
             testList.Insert(value);
@@ -82,12 +82,11 @@ namespace UnitTests
         [InlineData(-1)]
         [InlineData(-100)]
         [InlineData(1.1)]
-        public void Includes_ReturnsTrueForListWithManyNodes(int value)
+        public void Includes_ReturnsTrueForListWithManyNodes(Object value)
         {
             LinkedList testList = new LinkedList();
-            int number = Convert.ToInt32(1.1);
-            int[] testPoints = new int[] { 0, 1, 100, -1, -100, number };
-            foreach (int point in testPoints)
+            Object[] testPoints = new Object[] { 0, 1, 100, -1, -100, 1.1 };
+            foreach (Object point in testPoints)
             {
                 testList.Insert(point);
             }
@@ -117,8 +116,8 @@ namespace UnitTests
         public void InsertBefore_InsertsInCorrectSlot()
         {
             LinkedList testList = new LinkedList();
-            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
-            foreach (int point in testPoints)
+            Object[] testPoints = new Object[] { 0, 1, 100, -1, -100 };
+            foreach (Object point in testPoints)
             {
                 testList.Insert(point);
             }
@@ -133,8 +132,8 @@ namespace UnitTests
         public void InsertBefore_InsertsNewHead()
         {
             LinkedList testList = new LinkedList();
-            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
-            foreach (int point in testPoints)
+            Object[] testPoints = new Object[] { 0, 1, 100, -1, -100 };
+            foreach (Object point in testPoints)
             {
                 testList.Insert(point);
             }
@@ -149,8 +148,8 @@ namespace UnitTests
         public void InsertAfter_InsertsInCorrectSlot()
         {
             LinkedList testList = new LinkedList();
-            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
-            foreach (int point in testPoints)
+            Object[] testPoints = new Object[] { 0, 1, 100, -1, -100 };
+            foreach (Object point in testPoints)
             {
                 testList.Insert(point);
             }
@@ -165,8 +164,8 @@ namespace UnitTests
         public void InsertAfter_InsertsAtEnd()
         {
             LinkedList testList = new LinkedList();
-            int[] testPoints = new int[] { 0, 1, 100, -1, -100 };
-            foreach (int point in testPoints)
+            Object[] testPoints = new Object[] { 0, 1, 100, -1, -100 };
+            foreach (Object point in testPoints)
             {
                 testList.Insert(point);
             }
@@ -199,12 +198,12 @@ namespace UnitTests
         [Theory]
         [InlineData(2, 4)]
         [InlineData(5, 1)]
-        [InlineData(6, -999999999)]
-        public void FindFromEnd(int k, int value)
+        [InlineData(6, null)]
+        public void FindFromEnd(int k, Object value)
         {
             LinkedList testList = new LinkedList();
-            int[] testPoints = new int[] { 6, 5, 4, 3, 2, 1 };
-            foreach (int point in testPoints)
+            Object[] testPoints = new Object[] { 6, 5, 4, 3, 2, 1 };
+            foreach (Object point in testPoints)
             {
                 testList.Insert(point);
             }

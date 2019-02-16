@@ -14,7 +14,7 @@ namespace linked_list.Classes
         /// New node becomes 'head'.
         /// </summary>
         /// <param name="value"> value assigned to the new node </param>
-        public void Insert(int value)
+        public void Insert(Object value)
         {
             Node node = new Node(value);
             node.Next = Head;
@@ -27,7 +27,7 @@ namespace linked_list.Classes
         /// </summary>
         /// <param name="value"> value to find in linked list </param>
         /// <returns></returns>
-        public bool Includes(int value)
+        public bool Includes(Object value)
         {
             if (Head != null)
             {
@@ -35,18 +35,40 @@ namespace linked_list.Classes
 
                 while (Current.Next != null)
                 {
-                    if (Current.Value == value)
+                    if (Current.Value.Equals(value))
                     {
                         return true;
                     }
                     Current = Current.Next;
                 }
-                if (Current.Value == value)
+                if (Current.Value.Equals(value))
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Finds a value in a linked list in a hashtable.
+        /// </summary>
+        /// <param name="value"> key of node to locate </param>
+        /// <returns> value of matching node (or null if not found) </returns>
+        public Object Find(Object key)
+        {
+            Current = Head;
+            while(Current != null)
+            {
+                if (Current.Key.Equals(key))
+                {
+                    Current = Current.Next;
+                }
+                else
+                {
+                    return Current.Value;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -67,9 +89,9 @@ namespace linked_list.Classes
         /// <param name="value"> value to look for </param>
         /// <param name="node"> node at which to start search </param>
         /// <returns> matching node (or null if not found) </returns>
-        private Node FindRec(int value, Node node)
+        private Node FindRec(Object value, Node node)
         {
-            if(node.Value == value)
+            if(node.Value.Equals(value))
             {
                 return node;
             }
@@ -125,7 +147,7 @@ namespace linked_list.Classes
         /// Creates a new node with specified value and inserts it at the end of a linked list
         /// </summary>
         /// <param name="value"> value of new node </param>
-        public void Append(int value)
+        public void Append(Object value)
         {
             if(Head == null)
             {
@@ -148,15 +170,41 @@ namespace linked_list.Classes
         }
 
         /// <summary>
+        /// Creates a new node with specified value and inserts it at the end of a linked list
+        /// </summary>
+        /// <param name="value"> value of new node </param>
+        public void Append(Object key, Object value)
+        {
+            if (Head == null)
+            {
+                Node node = new Node(key,value);
+                Head = node;
+            }
+            else
+            {
+                Current = Head;
+
+                while (Current.Next != null)
+                {
+                    Current = Current.Next;
+                }
+
+                Node node = new Node(key,value);
+
+                Current.Next = node;
+            }
+        }
+
+        /// <summary>
         /// Creates a new node with specified value (newValue) and inserts it into a linked list before the first existing node that matches specified value (value)
         /// </summary>
         /// <param name="value"> value of existing node to park new node in front of </param>
         /// <param name="newValue"> value of new node to be created and inserted into list </param>
-        public void InsertBefore(int value, int newValue)
+        public void InsertBefore(Object value, Object newValue)
         {
             Current = Head;
 
-            if (Current.Value == value)
+            if (Current.Value.Equals(value))
             {
                 Insert(newValue);
                 return;
@@ -164,7 +212,7 @@ namespace linked_list.Classes
 
             while (Current.Next != null)
             {
-                if (Current.Next.Value == value)
+                if (Current.Next.Value.Equals(value))
                 {
                     Node node = new Node(newValue);
                     node.Next = Current.Next;
@@ -181,13 +229,13 @@ namespace linked_list.Classes
         /// </summary>
         /// <param name="value"> value of existing node to park new node in front of </param>
         /// <param name="newValue"> value of new node to be created and inserted into list </param>
-        public void InsertAfter(int value, int newValue)
+        public void InsertAfter(Object value, Object newValue)
         {
             Current = Head;
 
             while (Current.Next != null)
             {
-                if (Current.Value == value)
+                if (Current.Value.Equals(value))
                 {
                     Node node = new Node(newValue);
                     node.Next = Current.Next;
@@ -200,7 +248,7 @@ namespace linked_list.Classes
                     Current = Current.Next;
                 }
             }
-            if (Current.Value == value)
+            if (Current.Value.Equals(value))
             {
                 Node node = new Node(newValue);
                 Current.Next = node;
@@ -213,7 +261,7 @@ namespace linked_list.Classes
         /// </summary>
         /// <param name="k"> number of nodes to count back from end </param>
         /// <returns> value of node preceding k-th from end </returns>
-        public int FindFromEnd(int k)
+        public Object FindFromEnd(int k)
         {
             // count nodes in list
             int counter = 1;
@@ -226,7 +274,7 @@ namespace linked_list.Classes
 
             // check whether list contains more than k elements
             if (k >= counter)
-            { return -999999999; }
+            { return null; }
 
             // set target node #
             counter -= k;

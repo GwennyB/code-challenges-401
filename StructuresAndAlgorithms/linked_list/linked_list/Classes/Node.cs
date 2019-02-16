@@ -6,16 +6,31 @@ namespace linked_list.Classes
 {
     public class Node
     {
-        public int Value { get; set; }
+        public Object Value { get; set; }
         public Node Next { get; set; }
+
+        // for hashtables
+        public Object Key { get; set; }
 
         /// <summary>
         /// Constructor - require value at node creation
         /// </summary>
         /// <param name="value"></param>
-        public Node(int value)
+        public Node(Object value)
         {
             Value = value;
         }
+
+        /// <summary>
+        /// Constructor - require value and key at node creation (for hashtable)
+        /// </summary>
+        /// <param name="key"> value of 'Key' </param>
+        /// <param name="value"> value of 'Value' </param>
+        public Node(Object key, Object value)
+        {
+            Key = key;
+            Value = value;
+        }
+
     }
 }
