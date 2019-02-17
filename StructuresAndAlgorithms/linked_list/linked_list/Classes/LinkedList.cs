@@ -61,11 +61,11 @@ namespace linked_list.Classes
             {
                 if (Current.Key.Equals(key))
                 {
-                    Current = Current.Next;
+                    return Current.Value;
                 }
                 else
                 {
-                    return Current.Value;
+                    Current = Current.Next;
                 }
             }
             return null;

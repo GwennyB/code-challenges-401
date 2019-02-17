@@ -9,7 +9,7 @@ namespace Hashtable.Classes
     {
         // associative array
         private int _size;
-        private LinkedList[] Buckets { get; set; }
+        public LinkedList[] Buckets { get; set; }
 
         /// <summary>
         /// CONSTRUCTOR: builds the associative array of specified length to store key-value pairs
@@ -53,7 +53,7 @@ namespace Hashtable.Classes
             }
             if (Get(key) == null)
             {
-                Buckets[idx].Append(new Node(key, value));
+                Buckets[idx].Append(key, value);
             }
         }
 
