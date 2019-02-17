@@ -5,8 +5,6 @@ using linked_list.Classes;
 
 namespace UnitTests
 {
-    /// REQMT: Successfully returns null for a key that does not exist in the hashtable
-
 
     public class UnitTest1
     {
@@ -107,5 +105,16 @@ namespace UnitTests
         }
 
 
+        /// <summary>
+        /// REQMT: Successfully returns null for a key that does not exist in the hashtable
+        /// </summary>
+        [Fact]
+        public void Get_ReturnsNullWhenNotPresent()
+        {
+            Hashmap map = new Hashmap(1024);
+            map.Add("key", 1);
+            map.Add("other key", 2);
+            Assert.Null(map.Get("not there"));
+        }
     }
 }
