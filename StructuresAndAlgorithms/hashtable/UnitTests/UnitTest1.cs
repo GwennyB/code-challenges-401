@@ -7,8 +7,7 @@ namespace UnitTests
 {
     /// REQMT: Retrieving based on a key returns the value stored
     /// REQMT: Successfully returns null for a key that does not exist in the hashtable
-    /// REQMT: Successfully handle a collision within the hashtable
-    /// REQMT: Successfully retrieve a value from a bucket within the hashtable that has a collision
+
 
     public class UnitTest1
     {
@@ -52,6 +51,7 @@ namespace UnitTests
         }
 
         /// <summary>
+        /// REQMT: Successfully handle a collision within the hashtable
         /// verifies that colliding pairs are stored in the same bucket
         /// </summary>
         /// <param name="keyOne"> key of 1st colliding pair </param>
@@ -68,6 +68,21 @@ namespace UnitTests
             Assert.Equal(map.Buckets[(int)value].Find(keyOne), map.Buckets[(int)value].Find(keyTwo));
         }
 
-
+        /// <summary>
+        /// REQMT: Successfully retrieve a value from a bucket within the hashtable that has a collision
+        /// returns value from associated key in a bucket with collisions
+        /// </summary>
+        /// <param name="keyOne"></param>
+        /// <param name="keyTwo"></param>
+        [Theory]
+        [InlineData("dogs", "gods")]
+        [InlineData("cats", "stac")]
+        public void Get_ReturnsValueFromKey(Object keyOne, Object keyTwo)
+        {
+            Hashmap map = new Hashmap(1024);
+            map.Add(keyOne, 1);
+            map.Add(keyTwo, 2);
+            Assert.Equal(2, map.Get(keyTwo));
+        }
     }
 }
