@@ -5,7 +5,6 @@ using linked_list.Classes;
 
 namespace UnitTests
 {
-    /// REQMT: Retrieving based on a key returns the value stored
     /// REQMT: Successfully returns null for a key that does not exist in the hashtable
 
 
@@ -68,21 +67,45 @@ namespace UnitTests
             Assert.Equal(map.Buckets[(int)value].Find(keyOne), map.Buckets[(int)value].Find(keyTwo));
         }
 
+
+        /// <summary>
+        /// REQMT: Retrieving based on a key returns the value stored
+        /// returns value from associated key in a bucket with collisions
+        /// </summary>
+        /// <param name="key"> value of 'key' </param>
+        /// <param name="value"> value of 'value' </param>
+        [Theory]
+        [InlineData("cats", 652)]
+        [InlineData("dogs", 596)]
+        [InlineData("people", 0)]
+        [InlineData("llamas", 144)]
+        [InlineData("bears", 836)]
+        [InlineData("goats", 420)]
+        public void Get_ReturnsValueFromKey(Object key, Object value)
+        {
+            Hashmap map = new Hashmap(1024);
+            map.Add(key, value);
+            Assert.Equal(value, map.Get(key));
+        }
+
+
         /// <summary>
         /// REQMT: Successfully retrieve a value from a bucket within the hashtable that has a collision
         /// returns value from associated key in a bucket with collisions
         /// </summary>
-        /// <param name="keyOne"></param>
-        /// <param name="keyTwo"></param>
+        /// <param name="keyOne"> first key </param>
+        /// <param name="keyTwo"> second key </param>
         [Theory]
         [InlineData("dogs", "gods")]
         [InlineData("cats", "stac")]
-        public void Get_ReturnsValueFromKey(Object keyOne, Object keyTwo)
+        public void Get_ReturnsValueFromCollidingKey(Object keyOne, Object keyTwo)
         {
             Hashmap map = new Hashmap(1024);
             map.Add(keyOne, 1);
             map.Add(keyTwo, 2);
             Assert.Equal(2, map.Get(keyTwo));
         }
+
+
     }
 }
