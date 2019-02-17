@@ -22,7 +22,10 @@ Each challenge has its own directory (with descriptive name). Each directory con
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/StructuresAndAlgorithms/linked_list
 
  tree
-    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/StructuresAndAlgorithms/tree
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/StructuresAndAlgorithms/tree  
+    
+ Hashtable  
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/StructuresAndAlgorithms/hashtable  
 
 
 ## challenges - challenge problems using the above structures and algorithms
