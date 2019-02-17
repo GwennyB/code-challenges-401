@@ -48,7 +48,26 @@ namespace UnitTests
         {
             Hashmap map = new Hashmap(1024);
             map.Add(key, value);
-            Assert.Equal(value,map.Buckets[(int)value].Find(key));
+            Assert.Equal(value, map.Buckets[(int)value].Find(key));
         }
+
+        /// <summary>
+        /// verifies that colliding pairs are stored in the same bucket
+        /// </summary>
+        /// <param name="keyOne"> key of 1st colliding pair </param>
+        /// <param name="keyTwo"> key of 2nd colliding pair</param>
+        /// <param name="value"> value of both pairs, and of bucket index </param>
+        [Theory]
+        [InlineData("dogs", "gods", 596)]
+        [InlineData("cats", "stac", 652)]
+        public void Add_AddsCollidingPairs(Object keyOne, Object keyTwo, Object value)
+        {
+            Hashmap map = new Hashmap(1024);
+            map.Add(keyOne, value);
+            map.Add(keyTwo, value);
+            Assert.Equal(map.Buckets[(int)value].Find(keyOne), map.Buckets[(int)value].Find(keyTwo));
+        }
+
+
     }
 }
