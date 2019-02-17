@@ -5,17 +5,17 @@ using linked_list.Classes;
 
 namespace Hashtable.Classes
 {
-    class Hashtable
+    public class Hashmap
     {
         // associative array
         private int _size;
-        private LinkedList[] Buckets { get; set; }
+        public LinkedList[] Buckets { get; set; }
 
         /// <summary>
         /// CONSTRUCTOR: builds the associative array of specified length to store key-value pairs
         /// </summary>
         /// <param name="size"> desired length of associative array </param>
-        public Hashtable(int size)
+        public Hashmap(int size)
         {
             _size = size;
             Buckets = new LinkedList[size];
@@ -29,12 +29,13 @@ namespace Hashtable.Classes
         public int Hash(Object key)
         {
             string keyString = (string)key;
-            int num = 1;
+            long num = 1;
             foreach (char item in keyString)
             {
                 num *= item;
             }
-            return num % _size;
+            int idx = (int)(num*599 % _size);
+            return idx;
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Hashtable.Classes
             }
             if (Get(key) == null)
             {
-                Buckets[idx].Append(new Node(key, value));
+                Buckets[idx].Append(key, value);
             }
         }
 
