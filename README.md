@@ -65,3 +65,6 @@ Each challenge has its own directory (with descriptive name). Each directory con
     
   FindAncestry -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/FindAncestry
+    
+  sorts -  
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/sorts  
