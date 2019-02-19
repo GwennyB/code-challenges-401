@@ -19,6 +19,11 @@ namespace repeated_word
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// adds each word to hashmap if not already present; returns first duplicate
+        /// </summary>
+        /// <param name="line"> string to search for duplicate </param>
+        /// <returns> first duplicate found, or 'no repeats found' if none </returns>
         public static string RepeatedWord(string line)
         {
             string[] words = line.Split(new char[] { ' ', ',', '.', ':', ';' });
