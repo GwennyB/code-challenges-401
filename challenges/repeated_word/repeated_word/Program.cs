@@ -26,7 +26,7 @@ namespace repeated_word
         /// <returns> first duplicate found, or 'no repeats found' if none </returns>
         public static string RepeatedWord(string line)
         {
-            string[] words = line.Split(new char[] { ' ', ',', '.', ':', ';' });
+            string[] words = line.Split(new char[] { ' ', ',', '.', ':', ';', '?','!','*','<','>', '(', ')', '{','}','[',']' });
             int idx = 0;
             Hashmap map = new Hashmap(1024);
             foreach (var word in words)
