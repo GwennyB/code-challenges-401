@@ -82,7 +82,12 @@ namespace Hashtable.Classes
         /// <returns></returns>
         public bool Contains(Object key, Object value)
         {
-            return Get(key).Equals(value) ? true : false;
+            Object answer = Get(key);
+            if (answer != null && answer.Equals(value))
+            {
+                return true;
+            }
+            return false;
         }
 
     }
