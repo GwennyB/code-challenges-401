@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using linked_list.Classes;
 
 namespace tree.Classes
 {

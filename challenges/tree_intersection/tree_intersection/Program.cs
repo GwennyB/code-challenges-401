@@ -1,6 +1,5 @@
 ﻿using System;
 using StacksAndQueues.Classes;
-using linked_list.Classes;
 using tree.Classes;
 using Hashtable.Classes;
 using System.Collections.Generic;
@@ -22,12 +21,25 @@ namespace tree_intersection
             List<object> list = new List<object>();
             Queue queue = new Queue();
             Hashmap map = new Hashmap(1024);
+            object temp = null;
 
             // traverse treeA
             queue.Enqueue(treeA.Root);
             while(queue.Front != null)
             {
+                if(queue.Front.Left != null)
+                {
+                    queue.Enqueue(queue.Front.Left);
+                }
+                if (queue.Front.Right != null)
+                {
+                    queue.Enqueue(queue.Front.Right);
+                }
+                temp = queue.Dequeue();
+                if (!map.Contains(temp, null))
+                {
 
+                }
             }
 
             // traverse treeB
