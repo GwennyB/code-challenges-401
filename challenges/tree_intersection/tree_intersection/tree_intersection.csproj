@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Hashtable">
+      <HintPath>..\..\..\StructuresAndAlgorithms\hashtable\Hashtable\bin\Debug\netcoreapp2.2\Hashtable.dll</HintPath>
+    </Reference>
+    <Reference Include="linked_list">
+      <HintPath>..\..\..\StructuresAndAlgorithms\linked_list\linked_list\bin\Debug\netcoreapp2.2\linked_list.dll</HintPath>
+    </Reference>
+    <Reference Include="StacksAndQueues">
+      <HintPath>..\..\..\StructuresAndAlgorithms\StacksAndQueues\StacksAndQueues\bin\Debug\netcoreapp2.2\StacksAndQueues.dll</HintPath>
+    </Reference>
+    <Reference Include="tree">
+      <HintPath>..\..\..\StructuresAndAlgorithms\tree\tree\bin\Debug\netcoreapp2.2\tree.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
