@@ -7,7 +7,7 @@ using StacksAndQueues.Classes;
 
 namespace tree_intersection
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -20,8 +20,8 @@ namespace tree_intersection
                 Console.Write($"  {item}  ");
             }
 
-            BinaryTree treeC = BuildBinTree(new int[] { 1,1,1,1,1,1,1 });
-            BinaryTree treeD = BuildBinTree(new int[] { 1,2,1,2,1,2,1 });
+            BinaryTree treeC = BuildBinTree(new int[] { 1, 1, 1, 1, 1, 1, 1 });
+            BinaryTree treeD = BuildBinTree(new int[] { 2, 2, 2, 2, 2, 2, 2 });
             List<Object> listC = TreeIntersection(treeC, treeD);
             Console.WriteLine("\ntest 2: ");
             foreach (var item in listC)
@@ -30,19 +30,10 @@ namespace tree_intersection
             }
 
             BinaryTree treeE = BuildBinTree(new int[] { 1, 1, 1, 1, 1, 1, 1 });
-            BinaryTree treeF = BuildBinTree(new int[] { 2,2,2,2,2,2,2 });
+            BinaryTree treeF = new BinaryTree();
             List<Object> listE = TreeIntersection(treeE, treeF);
             Console.WriteLine("\ntest 3: ");
             foreach (var item in listE)
-            {
-                Console.Write($"  {item}  ");
-            }
-
-            BinaryTree treeG = BuildBinTree(new int[] { 1, 1, 1, 1, 1, 1, 1 });
-            BinaryTree treeH = new BinaryTree();
-            List<Object> listG = TreeIntersection(treeG, treeH);
-            Console.WriteLine("\ntest 4: ");
-            foreach (var item in listG)
             {
                 Console.Write($"  {item}  ");
             }

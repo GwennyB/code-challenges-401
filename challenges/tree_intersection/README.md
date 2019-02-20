@@ -14,6 +14,5 @@ All nodes must be visited in order to find all matches, so time complexity is O(
 ## Solution
 This challenge included a set of unit tests verifying that:  
   - returns matches for 2 unique trees
-  - returns matches without duplication when present in trees
   - returns null list when at least 1 tree is empty or no matches exist
 ![unit tests](assets/unit-tests.PNG)
