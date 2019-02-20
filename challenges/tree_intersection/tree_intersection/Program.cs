@@ -1,9 +1,9 @@
 ﻿using System;
-using StacksAndQueues.Classes;
 using tree.Classes;
 using Hashtable.Classes;
 using System.Collections.Generic;
 using linked_list.Classes;
+using StacksAndQueues.Classes;
 
 namespace tree_intersection
 {
@@ -13,11 +13,40 @@ namespace tree_intersection
         {
             BinaryTree treeA = BuildBinTree(new int[] { 1,2,3,4,5,6,7 });
             BinaryTree treeB = BuildBinTree(new int[] { 1,-2,3,-4,5,-6,7 });
-            List<object> list = TreeIntersection(treeA,treeB);
-            foreach (var item in list)
+            List<Object> listA = TreeIntersection(treeA,treeB);
+            Console.WriteLine("test 1: ");
+            foreach (var item in listA)
             {
-                Console.WriteLine($"  {item}  ");
+                Console.Write($"  {item}  ");
             }
+
+            BinaryTree treeC = BuildBinTree(new int[] { 1,1,1,1,1,1,1 });
+            BinaryTree treeD = BuildBinTree(new int[] { 1,2,1,2,1,2,1 });
+            List<Object> listC = TreeIntersection(treeC, treeD);
+            Console.WriteLine("\ntest 2: ");
+            foreach (var item in listC)
+            {
+                Console.Write($"  {item}  ");
+            }
+
+            BinaryTree treeE = BuildBinTree(new int[] { 1, 1, 1, 1, 1, 1, 1 });
+            BinaryTree treeF = BuildBinTree(new int[] { 2,2,2,2,2,2,2 });
+            List<Object> listE = TreeIntersection(treeE, treeF);
+            Console.WriteLine("\ntest 3: ");
+            foreach (var item in listE)
+            {
+                Console.Write($"  {item}  ");
+            }
+
+            BinaryTree treeG = BuildBinTree(new int[] { 1, 1, 1, 1, 1, 1, 1 });
+            BinaryTree treeH = new BinaryTree();
+            List<Object> listG = TreeIntersection(treeG, treeH);
+            Console.WriteLine("\ntest 4: ");
+            foreach (var item in listG)
+            {
+                Console.Write($"  {item}  ");
+            }
+
             Console.ReadLine();
         }
 
@@ -27,7 +56,7 @@ namespace tree_intersection
             List<object> list = new List<object>();
             Queue queue = new Queue();
             Hashmap map = new Hashmap(1024);
-            object temp = null;
+            Object temp = null;
 
             // traverse treeA
             queue.Enqueue(treeA.Root);
@@ -41,11 +70,12 @@ namespace tree_intersection
                 {
                     queue.Enqueue(queue.Front.Right);
                 }
-                temp = queue.Dequeue();
-                if (!map.Contains(temp, null))
+                temp = queue.Front.Value.ToString();
+                if (!map.Contains(temp, temp))
                 {
-                    map.Add(temp, null);
+                    map.Add(temp, temp);
                 }
+                queue.Dequeue();
             }
 
             // traverse treeB
@@ -60,12 +90,13 @@ namespace tree_intersection
                 {
                     queue.Enqueue(queue.Front.Right);
                 }
-                temp = queue.Dequeue();
-                if (!map.Contains(temp, null))
+                temp = queue.Front.Value.ToString();
+                if (map.Contains(temp, temp))
                 {
-                    map.Remove(temp, null);
+                    //map.Remove(temp, temp);
                     list.Add(temp);
                 }
+                queue.Dequeue();
             }
             return list;
         }

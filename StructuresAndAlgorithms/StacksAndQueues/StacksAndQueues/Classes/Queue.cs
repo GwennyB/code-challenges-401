@@ -30,6 +30,25 @@ namespace StacksAndQueues.Classes
         }
 
         /// <summary>
+        /// Enqueue for use with existing nodes, such as to traverse a tree
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public void Enqueue(Node node)
+        {
+            if (Front == null)
+            {
+                Front = node;
+                Rear = node;
+            }
+            else
+            {
+                Rear.Next = node;
+                Rear = node;
+            }
+        }
+
+        /// <summary>
         /// attaches a new node of specified value to the back of a queue, and assigns it as Rear
         /// </summary>
         /// <param name="value"> ref to the node to add to rear of queue </param> 

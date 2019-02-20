@@ -28,7 +28,7 @@ namespace Hashtable.Classes
         /// <returns> hashed index </returns>
         public int Hash(Object key)
         {
-            string keyString = (string)key;
+            string keyString = key.ToString();
             long num = 1;
             foreach (char item in keyString)
             {
