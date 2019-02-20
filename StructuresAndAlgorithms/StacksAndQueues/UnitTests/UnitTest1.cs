@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using StacksAndQueues.Classes;
+using linked_list.Classes;
 
 namespace UnitTests
 {
@@ -12,7 +13,7 @@ namespace UnitTests
         [Fact]
         public void Node_MakesNodeFromInt()
         {
-            Node<int> node = new Node<int>(5);
+            Node node = new Node(5);
             Assert.Equal(5, node.Value);
         }
 
@@ -22,7 +23,7 @@ namespace UnitTests
         [Fact]
         public void Node_MakesNodeFromString()
         {
-            Node<string> node = new Node<string>("widget");
+            Node node = new Node("widget");
             Assert.Equal("widget", node.Value);
         }
 
@@ -32,7 +33,7 @@ namespace UnitTests
         [Fact]
         public void Node_MakesNodeWithNullNext()
         {
-            Node<string> node = new Node<string>("widget");
+            Node node = new Node("widget");
             Assert.Null(node.Next);
         }
 
@@ -43,7 +44,7 @@ namespace UnitTests
         [Fact]
         public void Queue_MakesQueueWithNullFront()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             Assert.Null(queue.Front);
         }
 
@@ -53,7 +54,7 @@ namespace UnitTests
         [Fact]
         public void Queue_MakesQueueWithNullRear()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             Assert.Null(queue.Rear);
         }
 
@@ -63,8 +64,8 @@ namespace UnitTests
         [Fact]
         public void Queue_MakesQueueWithSettableFront()
         {
-            Queue<int> queue = new Queue<int>();
-            Node<int> node = new Node<int>(5);
+            Queue queue = new Queue();
+            Node node = new Node(5);
             queue.Front = node;
             Assert.Equal(5,queue.Front.Value);
         }
@@ -75,7 +76,7 @@ namespace UnitTests
         [Fact]
         public void Enqueue_MakesNewNodeWithSpecifiedValue()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             Assert.Equal(5,queue.Rear.Value);
         }
@@ -86,7 +87,7 @@ namespace UnitTests
         [Fact]
         public void Enqueue_RedirectsRear()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             queue.Enqueue(0);
             Assert.Equal(0, queue.Rear.Value);
@@ -98,7 +99,7 @@ namespace UnitTests
         [Fact]
         public void Enqueue_DirectsNewNodeToRear()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             queue.Enqueue(0);
             Assert.Null(queue.Rear.Next);
@@ -110,7 +111,7 @@ namespace UnitTests
         [Fact]
         public void Dequeue_ReturnsValueOfExtractedNode()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             queue.Enqueue(3);
             queue.Enqueue(1);
@@ -123,7 +124,7 @@ namespace UnitTests
         [Fact]
         public void Dequeue_FrontRedirectsToNextInLine()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             queue.Enqueue(3);
             queue.Enqueue(1);
@@ -137,7 +138,7 @@ namespace UnitTests
         [Fact]
         public void Dequeue_MaintainsNextInLine()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             queue.Enqueue(3);
             queue.Enqueue(1);
@@ -151,7 +152,7 @@ namespace UnitTests
         [Fact]
         public void Peek_ReturnsNull()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             Assert.Null(queue.Peek());
         }
 
@@ -161,7 +162,7 @@ namespace UnitTests
         [Fact]
         public void Peek_ReturnsFront()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             Assert.Equal(5, queue.Peek().Value);
         }
@@ -172,7 +173,7 @@ namespace UnitTests
         [Fact]
         public void Peek_ReturnsFrontAfterQueueChanges()
         {
-            Queue<int> queue = new Queue<int>();
+            Queue queue = new Queue();
             queue.Enqueue(5);
             queue.Enqueue(3);
             queue.Enqueue(1);
@@ -187,7 +188,7 @@ namespace UnitTests
         [Fact]
         public void Stack_BuildsEmptyStackTypeInt()
         {
-            Stack<int> stack = new Stack<int>();
+            Stack stack = new Stack();
             Assert.Null(stack.Peek());
         }
 
@@ -197,7 +198,7 @@ namespace UnitTests
         [Fact]
         public void Stack_BuildsEmptyStackTypeString()
         {
-            Stack<string> stack = new Stack<string>();
+            Stack stack = new Stack();
             Assert.Null(stack.Peek());
         }
 
@@ -207,7 +208,7 @@ namespace UnitTests
         [Fact]
         public void Stack_BuildsStackWithSettableTop()
         {
-            Stack<string> stack = new Stack<string>();
+            Stack stack = new Stack();
             stack.Push("test");
             Assert.Equal("test",stack.Peek().Value);
         }
@@ -218,7 +219,7 @@ namespace UnitTests
         [Fact]
         public void Push_AddsSpecifiedNewNodeToTopOfStack()
         {
-            Stack<string> stack = new Stack<string>();
+            Stack stack = new Stack();
             stack.Push("test");
             stack.Push("testTwo");
             Assert.Equal("testTwo", stack.Top.Value);
@@ -230,7 +231,7 @@ namespace UnitTests
         [Fact]
         public void Pop_ReturnsTopNode()
         {
-            Stack<string> stack = new Stack<string>();
+            Stack stack = new Stack();
             stack.Push("test");
             stack.Push("testTwo");
             Assert.Equal("testTwo", stack.Pop());
@@ -242,7 +243,7 @@ namespace UnitTests
         [Fact]
         public void Pop_SetsNextNodeAsTop()
         {
-            Stack<string> stack = new Stack<string>();
+            Stack stack = new Stack();
             stack.Push("test");
             stack.Push("testTwo");
             stack.Pop();
@@ -255,7 +256,7 @@ namespace UnitTests
         [Fact]
         public void StackPeek_ReturnsNull()
         {
-            Stack<int> stack = new Stack<int>();
+            Stack stack = new Stack();
             Assert.Null(stack.Peek());
         }
 
@@ -265,7 +266,7 @@ namespace UnitTests
         [Fact]
         public void StackPeek_ReturnsTop()
         {
-            Stack<int> stack = new Stack<int>();
+            Stack stack = new Stack();
             stack.Push(5);
             Assert.Equal(5, stack.Peek().Value);
         }
@@ -276,7 +277,7 @@ namespace UnitTests
         [Fact]
         public void StackPeek_ReturnsTopAfterStackChanges()
         {
-            Stack<int> stack = new Stack<int>();
+            Stack stack = new Stack();
             stack.Push(5);
             stack.Push(3);
             stack.Push(1);

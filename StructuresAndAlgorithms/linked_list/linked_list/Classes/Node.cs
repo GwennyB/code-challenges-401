@@ -7,7 +7,13 @@ namespace linked_list.Classes
     public class Node
     {
         public Object Value { get; set; }
+
+        // for linked lists
         public Node Next { get; set; }
+
+        // for trees
+        public Node Left { get; set; }
+        public Node Right { get; set; }
 
         // for hashtables
         public Object Key { get; set; }
@@ -19,6 +25,9 @@ namespace linked_list.Classes
         public Node(Object value)
         {
             Value = value;
+            Next = null;
+            Left = null;
+            Right = null;
         }
 
         /// <summary>
@@ -30,6 +39,9 @@ namespace linked_list.Classes
         {
             Key = key;
             Value = value;
+            Next = null;
+            Left = null;
+            Right = null;
         }
 
     }

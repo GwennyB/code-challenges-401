@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using linked_list.Classes;
 
 namespace tree.Classes
 {
@@ -44,7 +45,7 @@ namespace tree.Classes
             {
                 PostOrderBottom(node.Right, values);
             };
-            values.Add(node.Value);
+            values.Add((int)node.Value);
 
             return values;
         }
@@ -73,7 +74,7 @@ namespace tree.Classes
             {
                 InOrderBottom(node.Left, values);
             }
-            values.Add(node.Value);
+            values.Add((int)node.Value);
             if (node.Right != null)
             {
                 InOrderBottom(node.Right, values);
@@ -101,7 +102,7 @@ namespace tree.Classes
         /// <returns> array of tree values in PreOrder </returns>
         private List<int> PreOrderBottom(Node node, List<int> values)
         {
-            values.Add(node.Value);
+            values.Add((int)node.Value);
             if (node.Left != null)
             {
                 PreOrderBottom(node.Left, values);

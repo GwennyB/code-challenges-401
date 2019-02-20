@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using linked_list.Classes;
 
 namespace tree.Classes
 {
@@ -27,12 +28,12 @@ namespace tree.Classes
             Node last = null;
             while (current != null)
             {
-                if (value == current.Value)
+                if ((int)value == (int)current.Value)
                 {
 
                     return;
                 }
-                else if (value < current.Value)
+                else if ((int)value < (int)current.Value)
                 {
                     last = current;
                     current = current.Left;
@@ -43,7 +44,7 @@ namespace tree.Classes
                     current = current.Right;
                 }
             }
-            if(value < last.Value)
+            if((int)value < (int)last.Value)
             {
                 last.Left = newNode;
             }
@@ -63,11 +64,11 @@ namespace tree.Classes
             Node current = Root;
             while (current != null)
             {
-                if (current.Value == value)
+                if ((int)current.Value == (int)value)
                 {
                     return true;
                 }
-                else if (value < current.Value)
+                else if ((int)value < (int)current.Value)
                 {
                     current = current.Left;
                 }

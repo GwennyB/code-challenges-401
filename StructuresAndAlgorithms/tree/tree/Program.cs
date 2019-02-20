@@ -1,5 +1,6 @@
 ﻿using System;
 using tree.Classes;
+using linked_list.Classes;
 
 namespace tree
 {

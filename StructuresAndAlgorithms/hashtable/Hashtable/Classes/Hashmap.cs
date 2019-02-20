@@ -28,7 +28,7 @@ namespace Hashtable.Classes
         /// <returns> hashed index </returns>
         public int Hash(Object key)
         {
-            string keyString = (string)key;
+            string keyString = key.ToString();
             long num = 1;
             foreach (char item in keyString)
             {
@@ -88,6 +88,34 @@ namespace Hashtable.Classes
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// removes a node of specified key/value from a hashtable (if it exists)
+        /// </summary>
+        /// <param name="key"> key of node to remove </param>
+        /// <param name="value"> value of node to remove </param>
+        public void Remove(Object key, Object value)
+        {
+            int idx = Hash(key);
+            Buckets[idx].Current = Buckets[idx].Head;
+            Node temp = new Node("");
+            temp.Next = Buckets[idx].Current;
+            while (Buckets[idx].Current != null)
+            {
+                if (Buckets[idx].Current.Key.Equals(key)
+                    && Buckets[idx].Current.Value.Equals(value))
+                {
+                    temp.Next = Buckets[idx].Current.Next;
+                    return;
+                }
+                else
+                {
+                    temp = temp.Next;
+                    Buckets[idx].Current = Buckets[idx].Current.Next;
+                }
+            }
+            temp.Next = null;
         }
 
     }

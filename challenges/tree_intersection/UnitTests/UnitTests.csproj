@@ -13,12 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\tree\tree.csproj" />
+    <ProjectReference Include="..\tree_intersection\tree_intersection.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="linked_list">
-      <HintPath>..\..\linked_list\linked_list\bin\Debug\netcoreapp2.2\linked_list.dll</HintPath>
+      <HintPath>..\..\..\StructuresAndAlgorithms\tree\tree\bin\Debug\netcoreapp2.2\linked_list.dll</HintPath>
+    </Reference>
+    <Reference Include="tree">
+      <HintPath>..\..\..\StructuresAndAlgorithms\tree\tree\bin\Debug\netcoreapp2.2\tree.dll</HintPath>
     </Reference>
   </ItemGroup>
 
