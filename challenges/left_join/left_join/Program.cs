@@ -9,7 +9,18 @@ namespace left_join
     {
         static void Main(string[] args)
         {
-            
+            Hashmap mapA = new Hashmap(1024);
+            mapA.Add("cats", "blue");
+            mapA.Add("dogs", "green");
+            mapA.Add("llamas", "red");
+            mapA.Add("cows", "purple");
+            Hashmap mapB = new Hashmap(1024);
+            mapB.Add("cats", "14");
+            mapB.Add("cows", "22");
+            mapB.Add("whales", "10");
+            mapB.Add("ants", "223");
+            PrintList(LeftJoin(mapA, mapB));
+            Console.ReadLine();
         }
 
         public static List<string> LeftJoin(Hashmap mapA, Hashmap mapB)
