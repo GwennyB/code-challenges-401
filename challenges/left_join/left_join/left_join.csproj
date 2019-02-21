@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Hashtable">
+      <HintPath>..\..\..\StructuresAndAlgorithms\hashtable\Hashtable\bin\Debug\netcoreapp2.2\Hashtable.dll</HintPath>
+    </Reference>
+    <Reference Include="linked_list">
+      <HintPath>..\..\..\StructuresAndAlgorithms\hashtable\Hashtable\bin\Debug\netcoreapp2.2\linked_list.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
