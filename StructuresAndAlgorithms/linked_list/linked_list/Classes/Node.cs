@@ -44,5 +44,9 @@ namespace linked_list.Classes
             Right = null;
         }
 
+        // for graphs
+        public bool Visited { get; set; }
+        public LinkedList<Tuple<Node,int>> Neighbors { get; set; }
+
     }
 }
