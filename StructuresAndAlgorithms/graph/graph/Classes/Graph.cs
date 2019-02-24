@@ -13,9 +13,10 @@ namespace graph.Classes
         //Adds a new node to the graph
         //Takes in the value of that node
         //Returns the added node
-        public Node AddNode(Object value)
+        public Node AddNode(int value)
         {
-
+            Vertices.Append(value);
+            return Vertices.Find(value);
         }
 
 
