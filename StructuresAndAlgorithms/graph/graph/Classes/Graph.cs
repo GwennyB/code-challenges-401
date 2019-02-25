@@ -54,9 +54,19 @@ namespace graph.Classes
         //Returns a collection of nodes connected to the given node
         //Takes in a given node
         //Include the weight of the connection in the returned collection
-        public LinkedList GetNeighbors(Node node)
+        public List<Tuple<Node,int>> GetNeighbors(Node node)
         {
-
+            List<Tuple<Node, int>> list = new List<Tuple<Node, int>>();
+            Vertices.Current = Vertices.Head;
+            while (Vertices.Current != null && Vertices.Current != node)
+            {
+                Vertices.Current = Vertices.Current.Next;
+            }
+            if (Vertices.Current == node)
+            {
+                list = Vertices.Current.Neighbors;
+            }
+            return list;
         }
 
 
@@ -65,7 +75,7 @@ namespace graph.Classes
         //Returns the total number of nodes in the graph
         public int Size()
         {
-
+            return GetNodes().Count;
         }
 
     }
