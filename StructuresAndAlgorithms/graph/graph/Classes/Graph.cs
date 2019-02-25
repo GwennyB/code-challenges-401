@@ -9,10 +9,13 @@ namespace graph.Classes
     {
         public LinkedList Vertices { get; set; }
 
-        //AddNode()
-        //Adds a new node to the graph
-        //Takes in the value of that node
-        //Returns the added node
+        /// <summary>
+        ///Adds a new node to the graph
+        ///Takes in the value of that node
+        ///Returns the added node
+        /// </summary>
+        /// <param name="value"> value of node to add </param>
+        /// <returns> the node just added </returns>
         public Node AddNode(int value)
         {
             Vertices.Append(value);
@@ -20,20 +23,25 @@ namespace graph.Classes
         }
 
 
-        //AddEdge()
-        //Adds a new edge between two nodes in the graph
-        //Include the ability to have a “weight”
-        //Takes in the two nodes to be connected by the edge
-        //Both nodes should already be in the Graph
+        /// <summary>
+        ///Adds a new edge between two nodes in the graph
+        ///Includes the ability to have a “weight”
+        ///Takes in the two nodes to be connected by the edge
+        ///Both nodes should already be in the Graph
+        /// </summary>
+        /// <param name="parent"> parent node </param>
+        /// <param name="child"> child node </param>
+        /// <param name="weight"> weight of edge between parent and child </param>
         public void AddEdge(Node parent, Node child, int? weight)
         {
             Tuple<Node, int> neighbor = new Tuple<Node, int>(child,weight ?? 1);
             parent.Neighbors.Add(neighbor);
         }
 
-
-        //GetNodes()
-        //Returns all of the nodes in the graph as a collection(set, list, or similar)
+        /// <summary>
+        ///Returns all of the nodes in the graph as a collection(set, list, or similar)
+        /// </summary>
+        /// <returns> list of all nodes in the graph </returns>
         public List<Node> GetNodes()
         {
             List<Node> list = new List<Node>();
@@ -48,21 +56,22 @@ namespace graph.Classes
             return list;
         }
 
-
-
-        //GetNeighbors()
-        //Returns a collection of nodes connected to the given node
-        //Takes in a given node
-        //Include the weight of the connection in the returned collection
+        /// <summary>
+        ///Returns a collection of nodes connected to the given node
+        ///Takes in a given node
+        ///Includes the weight of the connection in the returned collection
+        /// </summary>
+        /// <param name="node"> node whose neighbors to return </param>
+        /// <returns> list of node's neighbors </returns>
         public List<Tuple<Node,int>> GetNeighbors(Node node)
         {
             return node.Neighbors;
         }
 
-
-
-        //Size()
-        //Returns the total number of nodes in the graph
+        /// <summary>
+        /// Returns the total number of nodes in the graph
+        /// </summary>
+        /// <returns> total count of nodes </returns>
         public int Size()
         {
             return GetNodes().Count;
