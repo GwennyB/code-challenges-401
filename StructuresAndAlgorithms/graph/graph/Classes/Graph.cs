@@ -28,7 +28,7 @@ namespace graph.Classes
         public void AddEdge(Node parent, Node child, int? weight)
         {
             Tuple<Node, int> neighbor = new Tuple<Node, int>(child,weight ?? 1);
-            parent.Neighbors.AddLast(neighbor);
+            parent.Neighbors.Add(neighbor);
         }
 
 
@@ -36,7 +36,16 @@ namespace graph.Classes
         //Returns all of the nodes in the graph as a collection(set, list, or similar)
         public List<Node> GetNodes()
         {
-
+            List<Node> list = new List<Node>();
+            Vertices.Current = Vertices.Head;
+            while (Vertices.Current != null)
+            {
+                for (int i = 0; i < Vertices.Current.Neighbors.Count; i++)
+                {
+                    list.Add(Vertices.Current.Neighbors[i].Item1);
+                }
+            }
+            return list;
         }
 
 
