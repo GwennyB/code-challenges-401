@@ -20,7 +20,6 @@ namespace graph.Classes
         }
 
 
-
         //AddEdge()
         //Adds a new edge between two nodes in the graph
         //Include the ability to have a “weight”
@@ -28,9 +27,9 @@ namespace graph.Classes
         //Both nodes should already be in the Graph
         public void AddEdge(Node parent, Node child, int? weight)
         {
-
+            Tuple<Node, int> neighbor = new Tuple<Node, int>(child,weight ?? 1);
+            parent.Neighbors.AddLast(neighbor);
         }
-
 
 
         //GetNodes()
