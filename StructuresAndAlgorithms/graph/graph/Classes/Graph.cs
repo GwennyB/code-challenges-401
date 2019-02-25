@@ -5,9 +5,14 @@ using linked_list.Classes;
 
 namespace graph.Classes
 {
-    class Graph
+    public class Graph
     {
         public LinkedList Vertices { get; set; }
+
+        public Graph()
+        {
+            Vertices = new LinkedList();
+        }
 
         /// <summary>
         ///Adds a new node to the graph
@@ -48,10 +53,20 @@ namespace graph.Classes
             Vertices.Current = Vertices.Head;
             while (Vertices.Current != null)
             {
+                if(Vertices.Current.Visited == false)
+                {
+                    list.Add(Vertices.Current);
+                    Vertices.Current.Visited = true;
+                }
                 for (int i = 0; i < Vertices.Current.Neighbors.Count; i++)
                 {
-                    list.Add(Vertices.Current.Neighbors[i].Item1);
+                    if(Vertices.Current.Neighbors[i].Item1.Visited == false)
+                    {
+                        list.Add(Vertices.Current.Neighbors[i].Item1);
+                        Vertices.Current.Neighbors[i].Item1.Visited = true;
+                    }
                 }
+                Vertices.Current = Vertices.Current.Next;
             }
             return list;
         }

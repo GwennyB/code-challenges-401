@@ -1,5 +1,8 @@
 using System;
 using Xunit;
+using graph.Classes;
+using linked_list.Classes;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -11,7 +14,9 @@ namespace UnitTests
         [Fact]
         public void CanAddNode()
         {
-
+            Graph graph = new Graph();
+            graph.AddNode(10);
+            Assert.True(graph.Vertices.Includes(10));
         }
 
         /// <summary>
@@ -20,7 +25,13 @@ namespace UnitTests
         [Fact]
         public void CanAddEdge()
         {
-
+            Graph graph = new Graph();
+            graph.AddNode(10);
+            graph.AddNode(5);
+            Node parent = graph.Vertices.Find(10);
+            Node child = graph.Vertices.Find(5);
+            graph.AddEdge(parent, child, 3);
+            Assert.Equal(3,graph.Vertices.Head.Neighbors[0].Item2);
         }
 
         /// <summary>
@@ -29,7 +40,22 @@ namespace UnitTests
         [Fact]
         public void CanReturnListOfAllNodes()
         {
+            Graph graph = new Graph();
+            graph.AddNode(10);
+            graph.AddNode(5);
+            graph.AddNode(2);
 
+            Node one = graph.Vertices.Find(10);
+            Node two = graph.Vertices.Find(5);
+            Node three = graph.Vertices.Find(2);
+
+            List<Node> list = new List<Node>();
+
+            list.Add(one);
+            list.Add(two);
+            list.Add(three);
+
+            Assert.Equal(list, graph.GetNodes());
         }
 
         /// <summary>
@@ -38,7 +64,27 @@ namespace UnitTests
         [Fact]
         public void CanReturnListOfNeighbors()
         {
+            Graph graph = new Graph();
+            graph.AddNode(10);
+            graph.AddNode(5);
+            graph.AddNode(2);
 
+            Node one = graph.Vertices.Find(10);
+            Node two = graph.Vertices.Find(5);
+            Node three = graph.Vertices.Find(2);
+
+            graph.AddEdge(one, two, 1);
+            graph.AddEdge(one, three, 1);
+
+            Tuple<Node, int> tOne = new Tuple<Node, int>(graph.Vertices.Find(10), 1);
+            Tuple<Node, int> tTwo = new Tuple<Node, int>(graph.Vertices.Find(5), 1);
+            Tuple<Node, int> tThree = new Tuple<Node, int>(graph.Vertices.Find(2), 1);
+
+            List<Tuple<Node, int>> list = new List<Tuple<Node, int>>();
+            list.Add(tTwo);
+            list.Add(tThree);
+
+            Assert.Equal(list, graph.GetNeighbors(one));
         }
 
         /// <summary>

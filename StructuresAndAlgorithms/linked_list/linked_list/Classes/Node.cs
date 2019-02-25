@@ -47,6 +47,11 @@ namespace linked_list.Classes
         // for graphs
         public bool Visited { get; set; }
         public List<Tuple<Node,int>> Neighbors { get; set; }
-
+        public Node(int value)
+        {
+            Value = value;
+            Neighbors = new List<Tuple<Node, int>>();
+            Visited = false;
+        }
     }
 }
