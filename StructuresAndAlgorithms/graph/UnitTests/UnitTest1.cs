@@ -76,7 +76,6 @@ namespace UnitTests
             graph.AddEdge(one, two, 1);
             graph.AddEdge(one, three, 1);
 
-            Tuple<Node, int> tOne = new Tuple<Node, int>(graph.Vertices.Find(10), 1);
             Tuple<Node, int> tTwo = new Tuple<Node, int>(graph.Vertices.Find(5), 1);
             Tuple<Node, int> tThree = new Tuple<Node, int>(graph.Vertices.Find(2), 1);
 
@@ -93,7 +92,26 @@ namespace UnitTests
         [Fact]
         public void CanReturnNeighborsWithWeights()
         {
+            Graph graph = new Graph();
+            graph.AddNode(10);
+            graph.AddNode(5);
+            graph.AddNode(2);
 
+            Node one = graph.Vertices.Find(10);
+            Node two = graph.Vertices.Find(5);
+            Node three = graph.Vertices.Find(2);
+
+            graph.AddEdge(one, two, 20);
+            graph.AddEdge(one, three, 30);
+
+            Tuple<Node, int> tTwo = new Tuple<Node, int>(graph.Vertices.Find(5), 20);
+            Tuple<Node, int> tThree = new Tuple<Node, int>(graph.Vertices.Find(2), 30);
+
+            List<Tuple<Node, int>> list = new List<Tuple<Node, int>>();
+            list.Add(tTwo);
+            list.Add(tThree);
+
+            Assert.Equal(list, graph.GetNeighbors(one));
         }
 
         /// <summary>
@@ -102,7 +120,11 @@ namespace UnitTests
         [Fact]
         public void CanReturnSize()
         {
-
+            Graph graph = new Graph();
+            graph.AddNode(10);
+            graph.AddNode(5);
+            graph.AddNode(2);
+            Assert.Equal(3, graph.Size());
         }
 
         /// <summary>
@@ -111,8 +133,20 @@ namespace UnitTests
         [Fact]
         public void CanReturnSingleNodeAndEdge()
         {
+            Graph graph = new Graph();
+            graph.AddNode(10);
 
-        }
+            Node one = graph.Vertices.Find(10);
+
+            graph.AddEdge(one, one, 10);
+
+            Tuple<Node, int> tOne = new Tuple<Node, int>(graph.Vertices.Find(10), 10);
+
+            List<Tuple<Node, int>> list = new List<Tuple<Node, int>>();
+            list.Add(tOne);
+
+            Assert.Equal(list, graph.GetNeighbors(one));
+            }
 
         /// <summary>
         /// An empty graph properly returns null
@@ -120,7 +154,9 @@ namespace UnitTests
         [Fact]
         public void CanReturnNull()
         {
-
+            Graph graph = new Graph();
+            List<Node> list = new List<Node>();
+            Assert.Equal(list, graph.GetNodes());
         }
 
     }
