@@ -27,6 +27,18 @@ namespace graph.Classes
             return Vertices.Find(value);
         }
 
+        /// <summary>
+        ///Adds a new node to the graph
+        ///Takes in the value of that node
+        ///Returns the added node
+        /// </summary>
+        /// <param name="value"> value of node to add </param>
+        /// <returns> the node just added </returns>
+        public Node AddNode(string value)
+        {
+            Vertices.Append(value);
+            return Vertices.Find(value);
+        }
 
         /// <summary>
         ///Adds a new edge between two nodes in the graph
