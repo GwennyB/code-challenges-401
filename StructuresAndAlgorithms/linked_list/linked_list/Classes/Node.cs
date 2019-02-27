@@ -28,6 +28,8 @@ namespace linked_list.Classes
             Next = null;
             Left = null;
             Right = null;
+            Neighbors = new List<Tuple<Node, int>>();
+            Visited = false;
         }
 
         /// <summary>
@@ -47,17 +49,7 @@ namespace linked_list.Classes
         // for graphs
         public bool Visited { get; set; }
         public List<Tuple<Node,int>> Neighbors { get; set; }
-        public Node(int value)
-        {
-            Value = value;
-            Neighbors = new List<Tuple<Node, int>>();
-            Visited = false;
-        }
-        public Node(string value)
-        {
-            Value = value;
-            Neighbors = new List<Tuple<Node, int>>();
-            Visited = false;
-        }
+
+
     }
 }

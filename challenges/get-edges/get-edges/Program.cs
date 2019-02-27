@@ -42,7 +42,7 @@ namespace get_edges
             Graph connections = new Graph();
             foreach (var item in cities)
             {
-                connections.AddNode(item);
+                connections.AddNode((string)item);
             }
             Node pandora = connections.Vertices.Find(cities[0]);
             Node narnia = connections.Vertices.Find(cities[1]);

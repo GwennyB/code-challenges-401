@@ -211,6 +211,32 @@ namespace linked_list.Classes
         /// Creates a new node with specified value and inserts it at the end of a linked list
         /// </summary>
         /// <param name="value"> value of new node </param>
+        public void Append(string value)
+        {
+            if (Head == null)
+            {
+                Node node = new Node(value);
+                Head = node;
+            }
+            else
+            {
+                Current = Head;
+
+                while (Current.Next != null)
+                {
+                    Current = Current.Next;
+                }
+
+                Node node = new Node(value);
+
+                Current.Next = node;
+            }
+        }
+
+        /// <summary>
+        /// Creates a new node with specified value and inserts it at the end of a linked list
+        /// </summary>
+        /// <param name="value"> value of new node </param>
         public void Append(Object key, Object value)
         {
             if (Head == null)
