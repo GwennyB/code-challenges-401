@@ -26,6 +26,9 @@ Each challenge has its own directory (with descriptive name). Each directory con
     
  Hashtable  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/StructuresAndAlgorithms/hashtable  
+    
+ graph
+    https://github.com/GwennyB/data-structures-and-algorithms/tree/master/StructuresAndAlgorithms/graph  
 
 
 ## challenges - challenge problems using the above structures and algorithms
@@ -68,3 +71,5 @@ Each challenge has its own directory (with descriptive name). Each directory con
     
   sorts -  
     https://github.com/GwennyB/data-structures-and-algorithms/tree/master/challenges/sorts  
+    
+  
