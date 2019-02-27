@@ -6,12 +6,13 @@ CF 401 .NET - Graphs
 
 ## Challenge
 Implement a Graph with the following methods:  
-  AddNode: Adds a single node of specified value to an existing graph.
-  AddEdge: Adds an edge of specified weight between 2 specified nodes already in the graph.
-  GetNodes: Gets a list of all nodes in a graph.
-  GetNeighbors: Gets a list of all neighbors of a node in a graph.
-  BreadthFirst: Gets a list of all nodes in a graph, using breadth-first traversal.
-    ![BreadthFirst solution](assets/whiteboard.jpg)
+  AddNode: Adds a single node of specified value to an existing graph.  
+  AddEdge: Adds an edge of specified weight between 2 specified nodes already in the graph.  
+  GetNodes: Gets a list of all nodes in a graph.  
+  GetNeighbors: Gets a list of all neighbors of a node in a graph.  
+  BreadthFirst: Gets a list of all nodes in a graph, using breadth-first traversal.  
+
+![BreadthFirst solution](assets/whiteboard.jpg)
 
 ## Approach
 The chosen implementation (linked list of nodes, each containing a list of adjacencies) lends itself to easy traversal for all methods. If searching for a specific node, the Vertices list (in Graph class) contains all - simply use the LinkedList methods to locate the specific node, and any processing, manipulation, or traversal from that point is done by accessing its list of adjacencies. Also, the listed methods largely rely on passed-in references to existing nodes, so there is no searching in those cases. As such, time/space complexity are O(1) for single node operations (AddNode, AddEdge) and O(n) for those requiring a full collection returned (GetNodes, GetNeighbors, BreadthFirst).
