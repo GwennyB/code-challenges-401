@@ -72,35 +72,47 @@ namespace linked_list.Classes
         }
 
         /// <summary>
-        /// Finds a value in a linked list.
-        /// Caller-facing: Calls FindRec to complete the heavy lifting. Sends Head as start point.
+        /// Finds a value in a linked list in a hashtable.
         /// </summary>
-        /// <param name="value"> value to look for </param>
-        /// <returns> matching node (or null if not found) </returns>
-        public Node Find(int value)
+        /// <param name="value"> key of node to locate </param>
+        /// <returns> value of matching node (or null if not found) </returns>
+        public Node Find(string value)
         {
-            return FindRec(value, Head);
+            Current = Head;
+            while (Current != null)
+            {
+                if (Current.Value.Equals(value))
+                {
+                    return Current;
+                }
+                else
+                {
+                    Current = Current.Next;
+                }
+            }
+            return null;
         }
 
         /// <summary>
-        /// Finds a value in a linked list using recursion.
-        /// Back-facing: Accessible only to local methods. Does the heavy lifting for 'Find(value)'.
+        /// Finds a value in a linked list in a hashtable.
         /// </summary>
-        /// <param name="value"> value to look for </param>
-        /// <param name="node"> node at which to start search </param>
-        /// <returns> matching node (or null if not found) </returns>
-        private Node FindRec(Object value, Node node)
+        /// <param name="value"> key of node to locate </param>
+        /// <returns> value of matching node (or null if not found) </returns>
+        public Node Find(int value)
         {
-            if(node.Value.Equals(value))
+            Current = Head;
+            while (Current != null)
             {
-                return node;
+                if (Current.Value.Equals(value))
+                {
+                    return Current;
+                }
+                else
+                {
+                    Current = Current.Next;
+                }
             }
-            if(node.Next == null)
-            {
-                return node.Next;
-            }
-
-            return FindRec(value, node.Next);
+            return null;
         }
 
         /// <summary>
@@ -184,6 +196,32 @@ namespace linked_list.Classes
             {
                 Current = Head;
             
+                while (Current.Next != null)
+                {
+                    Current = Current.Next;
+                }
+
+                Node node = new Node(value);
+
+                Current.Next = node;
+            }
+        }
+
+        /// <summary>
+        /// Creates a new node with specified value and inserts it at the end of a linked list
+        /// </summary>
+        /// <param name="value"> value of new node </param>
+        public void Append(string value)
+        {
+            if (Head == null)
+            {
+                Node node = new Node(value);
+                Head = node;
+            }
+            else
+            {
+                Current = Head;
+
                 while (Current.Next != null)
                 {
                     Current = Current.Next;
@@ -315,5 +353,43 @@ namespace linked_list.Classes
             
             return Current.Value;
         }
+
+
+
+        ///// <summary>
+        ///// DEPRECATED
+        ///// Finds a value in a linked list.
+        ///// Caller-facing: Calls FindRec to complete the heavy lifting. Sends Head as start point.
+        ///// </summary>
+        ///// <param name="value"> value to look for </param>
+        ///// <returns> matching node (or null if not found) </returns>
+        //public Node Find(int value)
+        //{
+        //    return FindRec(value, Head);
+        //}
+
+        ///// <summary>
+        ///// Finds a value in a linked list using recursion.
+        ///// Back-facing: Accessible only to local methods. Does the heavy lifting for 'Find(value)'.
+        ///// </summary>
+        ///// <param name="value"> value to look for </param>
+        ///// <param name="node"> node at which to start search </param>
+        ///// <returns> matching node (or null if not found) </returns>
+        //private Node FindRec(Object value, Node node)
+        //{
+        //    if(node.Value.Equals(value))
+        //    {
+        //        return node;
+        //    }
+        //    if(node.Next == null)
+        //    {
+        //        return node.Next;
+        //    }
+
+        //    return FindRec(value, node.Next);
+        //}
     }
+
+
+
 }
