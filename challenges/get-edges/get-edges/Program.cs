@@ -11,7 +11,7 @@ namespace get_edges
             string[] cities = new string[] { "Pandora", "Narnia", "Metroville", "Arendelle", "Monstropolis", "Naboo" };
             Graph connections = BuildGraph(cities);
             string[] itinerary = new string[] { };
-            Tuple<Node, int> ticket = GetEdge(connections, itinerary);
+            Tuple<bool, int> ticket = GetEdge(connections, itinerary);
             Console.Write("Requested itinerary: ");
             foreach (var item in itinerary)
             {
@@ -21,9 +21,20 @@ namespace get_edges
             Console.ReadLine();
         }
 
-        public static Tuple<Node,int> GetEdge(Graph connections, string[] cities)
+        public static Tuple<bool,int> GetEdge(Graph connections, string[] cities)
         {
-
+            int cost = 0;
+            Node temp = null;
+            Tuple<Node,int> tempNext = null;
+            for (int i = 0; i < cities.Length-2; i++)
+            {
+                temp = connections.Vertices.Find(cities[i]);
+                if (temp == null) return new Tuple<bool, int>(false,0);
+                tempNext = temp.Neighbors.Find(c => (string)c.Item1.Value == cities[i + 1]);
+                if (tempNext == null) return new Tuple<bool, int>(false, 0);
+                cost += tempNext.Item2;
+            }
+            return new Tuple<bool, int>(true, cost);
         }
 
         public static Graph BuildGraph(string[] cities)

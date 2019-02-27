@@ -53,5 +53,11 @@ namespace linked_list.Classes
             Neighbors = new List<Tuple<Node, int>>();
             Visited = false;
         }
+        public Node(string value)
+        {
+            Value = value;
+            Neighbors = new List<Tuple<Node, int>>();
+            Visited = false;
+        }
     }
 }
