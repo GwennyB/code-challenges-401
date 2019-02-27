@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using linked_list.Classes;
+using StacksAndQueues.Classes;
 
 namespace graph.Classes
 {
@@ -92,5 +93,30 @@ namespace graph.Classes
             return GetNodes().Count;
         }
 
+        /// <summary>
+        /// traverses a graph breadth-first (ie - all children of a node, then all children of children, etc), adds each to a list, and returns the list
+        /// </summary>
+        /// <param name="node"> root of graph to traverse </param>
+        /// <returns> list of all nodes in the graph </returns>
+        public LinkedList BreadthFirst(Node node)
+        {
+            Queue helper = new Queue();
+            LinkedList list = new LinkedList();
+            helper.Enqueue(node);
+            while (helper.Front != null)
+            {
+                foreach (Tuple<Node,int> neighbor in node.Neighbors)
+                {
+                    if(neighbor.Item1.Visited == false)
+                    {
+                        helper.Enqueue(neighbor.Item1);
+                    }
+                }
+                helper.Front.Visited = true;
+                list.Append(helper.Front);
+                helper.Dequeue();
+            }
+            return list;
+        }
     }
 }
